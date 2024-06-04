@@ -1,5 +1,6 @@
 @extends('frontend.main_master')
 @section('style')
+        
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
@@ -86,7 +87,7 @@
                                     <div class="form-group">
                                         <label>Pick up Time</label>
                                         <div class="input-group">
-                                            <input autocomplete="off" type="time" required name="check_in"
+                                            <input autocomplete="off" id="datetimepicker5" type="time" required name="pick_time"
                                             class="form-control">
                                             <span class="input-group-addon"></span>
                                         </div>

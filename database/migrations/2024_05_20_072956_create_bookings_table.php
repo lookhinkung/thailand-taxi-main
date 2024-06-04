@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('pick_from')->nullable(); 
             $table->string('drop_to')->nullable();
+            $table->string('pick_time')->nullable();
             $table->string('msg')->nullable();
             $table->string('nationality')->nullable();
 

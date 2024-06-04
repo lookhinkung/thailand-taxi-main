@@ -18,6 +18,7 @@ class Booking extends Model
         'check_in',
         'pick_from',
         'drop_to',
+        'pick_time',
         'msg',
     ];
     public function assign_cars(){

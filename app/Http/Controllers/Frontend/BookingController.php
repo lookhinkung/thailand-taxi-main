@@ -86,10 +86,11 @@ class BookingController extends Controller
         'name' => 'required',
         'email' => 'required',
         'nationality' => 'required',
-        'check_in' => 'required',
+        // 'check_in' => 'required',
         'pick_from' => 'required',
         'phone' => 'required',
         'drop_to' => 'required',
+        // 'pick_time'=>'required',
     ]);
 
     $book_data = Session::get('book_date');
@@ -137,6 +138,7 @@ class BookingController extends Controller
     $data->nationality = $request->nationality;
     $data->pick_from = $request->pick_from;
     $data->drop_to = $request->drop_to;
+    $data->pick_time = $request->pick_time;
     $data->msg = $request->msg;
     $data->code = $code;
     $data->status = 0;

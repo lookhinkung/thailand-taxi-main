@@ -247,12 +247,13 @@
 
 
     // Datetimepicker
-    $('#datetimepicker-check').datepicker();4
+    $('#datetimepicker-check').datepicker();
     $('.dt_picker').datepicker({
         dateFormat: 'yy-mm-dd',
         autoclose: true,
         minDate: 0
     });
+    
 
 
     $("#startdate").datepicker({
