@@ -104,7 +104,7 @@ Route::controller(CarController::class)->group(function () {
     Route::get('/edit/car/{id}','EditCar')->name('edit.car'); 
     Route::post('/update/car/{id}','UpdateCar')->name('update.car'); 
     Route::get('/multi/image/delete/{id}','MultiImageDelete')->name('multi.image.delete');
-
+    Route::get('/edit/carno/{id}','EditCarNumber2')->name('edit.carno2'); 
     Route::post('/store/car/no/{id}','StoreCarNumber')->name('store.car.no'); 
     Route::get('/edit/carno/{id}','EditCarNumber')->name('edit.carno'); 
     Route::post('/update/carno/{id}','UpdateCarNumber')->name('update.carno'); 
@@ -140,7 +140,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/booking/store/','BookingStore')->name('user_booking_store'); 
         Route::post('/checkout/store/','CheckoutStore')->name('checkout.store');
         
-        
+        // booking Update
+        Route::post('/update/booking/status/{id}','UpdateBookingStatus')->name('update.booking.status');
       
     });
 

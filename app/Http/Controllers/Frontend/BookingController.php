@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CarNumber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\BookArea;
@@ -176,15 +177,30 @@ class BookingController extends Controller
 
     }// End Method
 
+    
     public function EditBooking($id)
     {
 
         $editData = Booking::with('car')->find($id);
-        return view('backend.booking.edit_booking', compact('editData'));
+        $editCarNo = CarNumber::find($id);
+        return view('backend.booking.edit_booking', compact('editData','editCarNo'));
 
     }// End Method
+    public function UpdateBookingStatus(Request $request, $id){
+
+        $booking = Booking::find($id);
+        $booking->status = $request->status;
+        $booking->save();
+
+        $notification = array(
+            'message' => 'Information Updated Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->back()->with($notification);  
 
 
+     }   // End Method 
+    
 
 }
 

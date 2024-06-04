@@ -161,6 +161,9 @@ class CarController extends Controller
 
     }//End method
 
+   
+    
+
     public function UpdateCarNumber(Request $request, $id)
     {
 
