@@ -152,6 +152,7 @@
 			   <div class="card-body">
 				<form action="{{ route('update.booking.status',$editData->id) }}" method="POST">
                     @csrf
+
 					<div class="row">
 						<div class="cold-md-12 mb-2">
 							<label for="">CheckIn</label>
@@ -166,10 +167,10 @@
 							<label for="">Car No.</label>
 							<input type="number" required name="car_numbers" class="form-control" value="{{$editData->car_numbers}}">
 						</div>
-						<input type="hidden" name="available_car" class="form-control" value="{{$editCarNo->car_no}}">
-						<div class="cold-md-12 mb-2">
+						
+						{{-- <div class="cold-md-12 mb-2">
 							<label for="">Availability: <span class="text-success availability"></span></label>						
-						</div>
+						</div> --}}
 						<div class="mt-2">
 							<button type="submit" class="btn btn-primary">Update</button>
 						</div>

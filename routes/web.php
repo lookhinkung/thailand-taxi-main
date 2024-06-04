@@ -142,7 +142,8 @@ Route::middleware(['auth'])->group(function () {
         
         // booking Update
         Route::post('/update/booking/status/{id}','UpdateBookingStatus')->name('update.booking.status');
-      
+        
     });
 
 });//End group Auh Middleware
+

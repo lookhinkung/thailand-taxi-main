@@ -84,7 +84,7 @@
             <div class="form-group">
                 <label>Car number</label>
                 <select class="form-control" name="persion" id="nmbr_person">
-                    @for ($i = 1; $i <= 10; $i++)
+                    @for ($i = 1; $i <= 5; $i++)
                     <option {{old('persion')==$i ?'selected':''}} value="{{$i}}">{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
                 @endfor
                     
