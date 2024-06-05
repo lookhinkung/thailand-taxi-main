@@ -82,10 +82,10 @@
             </a>
             <ul>
                 <li> <a href="{{ route('booking.list') }}"><i class='bx bx-radio-circle'>
-                    </i>Bookinglist</a>
+                    </i>Booking list</a>
                 </li>
-                <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Product
-                        Details</a>
+                <li> <a href="{{ route('add.car.list') }}"><i class='bx bx-radio-circle'></i>Product
+                        Add Car List</a>
                 </li>
                 
             </ul>

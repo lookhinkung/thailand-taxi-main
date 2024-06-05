@@ -81,6 +81,7 @@ Route::controller(CarListController::class)->group(function () {
 
     Route::get('view/car/list','ViewCarList')->name('view.car.list'); 
     Route::get('add/car/list','AddCarList')->name('add.car.list'); 
+    Route::post('store/car/list','StoreCarList')->name('store.car.list'); 
   
 });
 

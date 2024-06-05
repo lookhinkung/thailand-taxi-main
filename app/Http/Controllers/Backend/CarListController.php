@@ -55,6 +55,98 @@ class CarListController extends Controller
     }// End Method
 
 
+    public function StoreCarList(Request $request)
+    {
+        if ($request->check_in == $request->check_out) {
+            $request->flash();
+            $notification = array(
+                'message' => 'You Enter Same Date',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+        $car = Car::find($request['car_id']);
+        if ($car->car_capacity < $request->number_of_person) {
+            $notification = array(
+                'message' => 'You Enter Maximum Number of Guest',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+
+        $book_data = Session::get('book_date');
+
+        $toDate = Carbon::parse($request['check_in']);
+        $fromDate = Carbon::parse($request['check_out']);
+        $nights = $toDate->diffInDays($fromDate);
+
+        // $car = Car::find($book_data['car_id']);
+
+        // Get the last used code from the database
+        $lastCode = Booking::orderBy('id', 'desc')->first()->code ?? 'AA000000000';
+
+        // Extract prefix and numerical part from the last code
+        preg_match('/([A-Z]{2})(\d{9})/', $lastCode, $matches);
+        $prefix = $matches[1];
+        $numPart = intval($matches[2]);
+
+        // Increment numerical part
+        $numPart++;
+
+        // If numerical part exceeds 999999999, increment prefix
+        if ($numPart > 999999999) {
+            $prefix++;
+            $numPart = 1;
+        }
+
+        // Format numerical part with leading zeros
+        $numPart = str_pad($numPart, 9, '0', STR_PAD_LEFT);
+
+        // Concatenate prefix and numerical part
+        $code = $prefix . $numPart;
+
+        $data = new Booking();
+        $data->car_id = $car->id;
+        $data->user_id = Auth::user()->id;
+        $data->check_in = date('Y-m-d', strtotime($request['check_in']));
+        $data->check_out = date('Y-m-d', strtotime($request['check_out']));
+        $data->persion = $request->number_of_person;
+        $data->number_of_cars = $request['number_of_cars'];
+        $data->total_night = $nights;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->nationality = $request->nationality;
+        $data->pick_from = $request->pick_from;
+        $data->drop_to = $request->drop_to;
+        $data->pick_time = $request->pick_time;
+        $data->msg = $request->msg;
+        $data->code = $code;
+        $data->status = 0;
+        $data->created_at = Carbon::now();
+
+        $data->save();
+
+        $sdate = date('Y-m-d', strtotime($request['check_in']));
+        $edate = date('Y-m-d', strtotime($request['check_out']));
+        $eldate = Carbon::create($edate)->subDay();
+        $d_period = CarbonPeriod::create($sdate, $eldate);
+        foreach ($d_period as $period) {
+            $booked_dates = new CarBookedDate();
+            $booked_dates->booking_id = $data->id;
+            $booked_dates->car_id = $car->id;
+            $booked_dates->book_date = date('Y-m-d', strtotime($period));
+            $booked_dates->save();
+        }
+
+        Session::forget('book_date');
+
+        $notification = array(
+            'message' => 'Booking Added Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 
 
 

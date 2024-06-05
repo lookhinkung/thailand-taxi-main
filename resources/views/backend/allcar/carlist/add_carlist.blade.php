@@ -27,8 +27,9 @@
             
 
 
-                <form class="row g-3">
-                    <div class="col-md-3">
+                <form method="POST" action="{{route('store.car.list')}}" class="row g-3">
+                    @csrf
+                    <div class="col-md-4">
                         <label for="cartype_id" class="form-label">Car Type</label>
                         <select name="car_id" id="car_id" class="form-select">
                             <option selected="">Select Car Type</option>
@@ -39,21 +40,25 @@
                             
                         </select>
                         <input type="hidden" name="available_car" id="available_car" class="form-control">
-                        <div class="mt-2">
+                        {{-- <div class="mt-2">
                             <label for="">Availability <span class="text-success" availability></span></label>
-                        </div>
+                        </div> --}}
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <label for="input2" class="form-label">Check In</label>
                         <input type="date" name="check_in" id="check_in" class="form-control" id="input2">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <label for="input3" class="form-label">Check Out</label>
                         <input type="date" name="check_out" id="check_out" class="form-control" id="input3">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <label for="input4" class="form-label">Guest</label>
-                        <input type="text" class="form-control" id="number_of_person" name="number_of_person">
+                        <input type="number" class="form-control" id="number_of_person" name="number_of_person">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="input4" class="form-label">Pick up Time</label>
+                        <input type="time" class="form-control datetimepicker5"  name="pick_time">
                     </div>
 
                     <h3 class="mt-3 mb-5 text-center">Customer Information</h3>
@@ -68,11 +73,11 @@
                     </div>
                     <div class="col-md-3">
                         <label for="input6" class="form-label">Phone</label>
-                        <input type="email" name="phone" class="form-control" id="input6" value="{{old('phone')}}">
+                        <input type="text" name="phone" class="form-control" id="input6" value="{{old('phone')}}">
                     </div>
                     <div class="col-md-3">
                         <label for="input6" class="form-label">Nationality</label>
-                        <input type="email" name="nationality" class="form-control" id="input6" value="{{old('nationality')}}">
+                        <input type="text" name="nationality" class="form-control" id="input6" value="{{old('nationality')}}">
                     </div>
                     
                     
