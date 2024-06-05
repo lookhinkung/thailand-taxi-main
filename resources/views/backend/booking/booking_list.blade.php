@@ -36,9 +36,10 @@
                                 <th>B Date</th>
                                 <th>Customer</th>
                                 <th>Car</th>
+                                <th>Pick up Time</th>
                                 <th>Check In/Out</th>
                                 <th>Total Day</th>
-                                <th>Guest</th>
+                                <th>Total Customer</th>
                                 <th>Status</th>
                                 <th>Action</th>
 
@@ -52,8 +53,9 @@
                                     <td>{{$item->created_at}} </td>
                                     <td> {{$item['user']['name']}}</td>
                                     <td>{{$item['car']['type']['name']}} </td>
+                                    <td>{{$item->pick_time}} </td>
                                     <td> <span class="badge bg-primary"> {{$item->check_in}} </span>
-                                    / <br> <span class="badge bg-warning text-dark"> {{$item->check_out}} </span></td>
+                                    <br> <span class="badge bg-warning text-dark"> {{$item->check_out}} </span></td>
                                     <td>{{$item->total_night}}  </td>
                                     <td> {{$item->persion}}</td>
                                     <td> @if ($item->status == '1')

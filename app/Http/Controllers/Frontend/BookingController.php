@@ -265,7 +265,7 @@ class BookingController extends Controller
         $check_data = BookingCarList::where('booking_id',$booking_id)->count();
 
         // if ($check_data < $booking->number_of_cars) {
-        if ($check_data < 1000) {
+        if ($check_data < 1) {
             $assign_data = new BookingCarList();
             $assign_data->booking_id = $booking_id;
             $assign_data->car_id = $booking->car_id;

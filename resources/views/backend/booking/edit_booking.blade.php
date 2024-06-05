@@ -107,6 +107,7 @@
                                     <tr>
                                         <th>Car Type</th>
                                         <th>Check In / Out Date</th>
+                                        <th>Pick up Time</th>
                                         <th>Total Passenger</th>
                                         <th>Total Days</th>
                                     </tr>
@@ -117,9 +118,10 @@
                                         <td>{{ $editData->car->type->name }}</td>
                                         <td>
                                             <span class="badge bg-primary"> {{ $editData->check_in }} </span>
-                                            / <br> <span class="badge bg-warning text-dark"> {{ $editData->check_out }}
+                                             <br> <span class="badge bg-warning text-dark"> {{ $editData->check_out }}
                                             </span>
                                         </td>
+                                        <td>{{ $editData->pick_time }}</td>
                                         <td>{{ $editData->persion }}</td>
                                         <td>{{ $editData->total_night }}</td>
                                     </tr>

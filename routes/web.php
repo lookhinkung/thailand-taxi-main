@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\CarTypeController;
 use App\Http\Controllers\Backend\CarController;
 use App\Http\Controllers\Frontend\FrontendCarController;
 use App\Http\Controllers\Frontend\BookingController;
+use App\Http\Controllers\Backend\CarListController;
 
 
 // Route::get('/', function () {
@@ -73,6 +74,14 @@ Route::controller(BookingController::class)->group(function () {
     Route::get('/booking/list','BookingList')->name('booking.list'); 
     Route::get('/edit_booking/{id}','EditBooking')->name('edit_booking'); 
 
+});
+
+//Admin Car List All Route
+Route::controller(CarListController::class)->group(function () {
+
+    Route::get('view/car/list','ViewCarList')->name('view.car.list'); 
+    Route::get('view/car/list','AddCarList')->name('add.car.list'); 
+  
 });
 
 
