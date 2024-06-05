@@ -203,25 +203,37 @@ class BookingController extends Controller
 
     }   // End Method 
 
-    public function edit($id)
+    
+    public function UpdateBooking(Request $request, $id)
     {
-        $booking = Booking::findOrFail($id);
-        $car_no = CarNumber::where('car_id', $booking->car_id)->pluck('car_no')->first();
 
-        return view('booking.edit', compact('booking', 'car_no'));
-    }
-    // app/Http/Controllers/BookingController.php
+        $data = Booking::find($id);
+        // $data->number_of_cars = $request->number_of_cars;
+        $data->check_in = date('Y-m-d',strtotime($request->check_in));
+        $data->check_out = date('Y-m-d',strtotime($request->check_out));
+        $data->save();
 
-    public function update(Request $request, $id)
-    {
-        $booking = Booking::findOrFail($id);
+        CarBookedDate::where('booking_id',$id)->delete();
 
-        // Update the number_of_cars field with the car_no value
-        $booking->update($request->all());
+        $sdate = date('Y-m-d', strtotime($request->check_in));
+        $edate = date('Y-m-d', strtotime($request->check_out));
+        $eldate = Carbon::create($edate)->subDay();
+        $d_period = CarbonPeriod::create($sdate, $eldate);
+        foreach ($d_period as $period) {
+            $booked_dates = new CarBookedDate();
+            $booked_dates->booking_id = $data->id;
+            $booked_dates->car_id = $data->car_id;
+            $booked_dates->book_date = date('Y-m-d', strtotime($period));
+            $booked_dates->save();
+        }
+        $notification = array(
+            'message' => 'Booking Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+        
 
-        return redirect()->route('booking.index')->with('success', 'Booking updated successfully');
-    }
-
+    }   // End Method 
 
 
 

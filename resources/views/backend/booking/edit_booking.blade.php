@@ -1,4 +1,5 @@
 @extends('admin.admin_dashboard')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 @section('admin')
 
 <div class="page-content">
@@ -110,6 +111,13 @@
 							</tr>
 						</tbody>
 					</table>
+
+
+					<div style="clear:both"></div>
+					<div style="margin-top:40px; margin-bottom:20px">
+					<a href="" class="btn btn-primary assign_car">Assing Car</a></div>
+
+
 					<form action="{{ route('update.booking.status',$editData->id) }}" method="POST">
 						@csrf
 						<div class="row" style="margin-top:40px;">
@@ -130,6 +138,8 @@
 
 				</div>
 				
+				
+
 			</div>
 		  </div>
 	   </div>
@@ -150,7 +160,7 @@
 				</div>
 			</div>
 			   <div class="card-body">
-				<form action="{{ route('update.booking.status',$editData->id) }}" method="POST">
+				<form action="{{ route('update.booking',$editData->id) }}" method="POST">
                     @csrf
 
 					<div class="row">
@@ -204,6 +214,6 @@
 
 	   </div>
 	</div><!--end row-->
-
+	
 	
 @endsection
