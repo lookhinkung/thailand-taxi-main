@@ -80,7 +80,7 @@ Route::controller(BookingController::class)->group(function () {
 Route::controller(CarListController::class)->group(function () {
 
     Route::get('view/car/list','ViewCarList')->name('view.car.list'); 
-    Route::get('view/car/list','AddCarList')->name('add.car.list'); 
+    Route::get('add/car/list','AddCarList')->name('add.car.list'); 
   
 });
 

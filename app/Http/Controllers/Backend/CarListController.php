@@ -16,6 +16,7 @@ use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use App\Models\BookingCarList;
+use App\Models\CarType;
 
 use Illuminate\Support\Facades\Log;
 
@@ -47,4 +48,18 @@ class CarListController extends Controller
         return view('backend.allcar.carlist.view_carlist',compact(('car_number_list')));
 
     }// End Method
+
+    public function AddCarList(){
+        $cartype = CarType::all();
+        return view('backend.allcar.carlist.add_carlist',compact('cartype'));
+    }// End Method
+
+
+
+
+
+
+
+
+
 }
