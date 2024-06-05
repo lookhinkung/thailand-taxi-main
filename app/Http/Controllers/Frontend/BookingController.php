@@ -17,6 +17,7 @@ use App\Models\CarBookedDate;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+use App\Models\BookingCarList;
 
 use Illuminate\Support\Facades\Log;
 
@@ -52,7 +53,7 @@ class BookingController extends Controller
             'check_in' => 'required',
             'check_out' => 'required',
             'persion' => 'required',
-            'number_of_rooms' => 'required',
+            // 'number_of_cars' => 'required',
 
         ]);
 
@@ -237,7 +238,56 @@ class BookingController extends Controller
 
 
 
+    public function AssignCar($booking_id){
 
+        $booking = Booking::find($booking_id);
+        $booking_date_array = CarBookedDate::where('booking_id',$booking_id)
+        ->pluck('book_date')->toArray();
+
+        $check_date_booking_ids = CarBookedDate::whereIn('book_date',$booking_date_array)
+        ->where('car_id',$booking->car_id)->distinct()->pluck('booking_id')->toArray();
+
+        $booking_ids = Booking::whereIn('id',$check_date_booking_ids)->pluck('id')->toArray();
+
+        $assign_car_id = BookingCarList::whereIn('booking_id',$booking_ids)->pluck
+        ('car_number_id')->toArray();
+
+        $car_numbers = CarNumber::where('car_id',$booking->car_id)->whereNotIn('id',$assign_car_id)
+        ->where('status','Active')->get();
+
+        return view('backend.booking.assign_car',compact('booking','car_numbers'));
+
+    }// End Method
+
+    public function AssignCarStore($booking_id,$car_number_id){
+
+        $booking = Booking::find($booking_id);
+        $check_data = BookingCarList::where('booking_id',$booking_id)->count();
+
+        // if ($check_data < $booking->number_of_cars) {
+        if ($check_data < 1000) {
+            $assign_data = new BookingCarList();
+            $assign_data->booking_id = $booking_id;
+            $assign_data->car_id = $booking->car_id;
+            $assign_data->car_number_id = $car_number_id;
+            $assign_data->save();
+
+            $notification = array(
+                'message' => 'Car Assign Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+            
+        }else{
+            $notification = array(
+                'message' => 'Car Already Assign',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+        
+
+    }
 
 }
 

@@ -81,7 +81,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label>Car number</label>
                 <select class="form-control" name="persion" id="nmbr_person">
                     @for ($i = 1; $i <= 5; $i++)
@@ -90,7 +90,7 @@
                     
                     
                 </select>
-            </div>
+            </div> --}}
             <input type="hidden" name="available_car" id="available_car">
             <p class="available_car"></p>
             {{-- <p class="text text-success">Fleet Available</p> --}}

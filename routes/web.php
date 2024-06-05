@@ -88,7 +88,7 @@ Route::controller(TeamController::class)->group(function () {
 
 });
 
-// RoomType All Route
+// CarType All Route
 Route::controller(CarTypeController::class)->group(function () {
 
     Route::get('/car/type/list','CarTypeList')->name('car.type.list'); 
@@ -98,7 +98,7 @@ Route::controller(CarTypeController::class)->group(function () {
     
 });
 
-// Room All Route
+// Car All Route
 Route::controller(CarController::class)->group(function () {
 
     Route::get('/edit/car/{id}','EditCar')->name('edit.car'); 
@@ -143,6 +143,10 @@ Route::middleware(['auth'])->group(function () {
         // booking Update
         Route::post('/update/booking/status/{id}','UpdateBookingStatus')->name('update.booking.status');
         Route::post('/update/booking/{id}','UpdateBooking')->name('update.booking');
+
+        // Assign Car route
+        Route::get('/assign_car/{id}','AssignCar')->name('assign_car');
+        Route::get('/assign_car/store/{booking_id}/{car_number_id}','AssignCarStore')->name('assign_car_store');
     });
 
 });//End group Auh Middleware
