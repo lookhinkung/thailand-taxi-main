@@ -287,7 +287,23 @@ class BookingController extends Controller
         }
         
 
+    }// End Method
+
+    public function AssignCarDelete($id){
+
+        $assign_car = BookingCarList::find($id);
+        $assign_car->delete();
+
+        $notification = array(
+            'message' => 'Assign Car Delete Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
     }
+
+
+
 
 }
 

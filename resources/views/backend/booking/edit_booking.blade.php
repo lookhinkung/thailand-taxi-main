@@ -127,11 +127,37 @@
                             </table>
 
 
-                            <div style="clear:both"></div>
-                            <div style="margin-top:40px; margin-bottom:20px">
-                                <a href="javascript::void(0)" class="btn btn-primary assign_car">Assign Car</a>
-                            </div>
+			<div style="clear:both"></div>
+			<div style="margin-top:40px; margin-bottom:20px">
+				<a href="javascript::void(0)" class="btn btn-primary assign_car">Assign Car</a>
+			</div>
+			@php
+				$assign_cars = App\Models\BookingCarList::with('car_number')->where('booking_id',$editData->id)->get();
+			@endphp
 
+			@if (count($assign_cars) > 0)
+			
+			<table class="table table-bordered">
+				<tr>
+					<th>Car Number</th>
+					<th>Action</th>
+				</tr>
+				@foreach ($assign_cars as $assign_car)
+					
+				
+				<tr>
+					<td> {{$assign_car->car_number->car_no}} </td>
+					<td>
+						<a href=" {{route('assign_car_delete',$assign_car->id)}} " id="delete">Delete</a>
+					</td>
+				</tr>
+				@endforeach
+			</table>
+			@else
+			<div class="alert alert-danger text-center">
+				Not Found Assign Car
+			</div>
+			@endif
 
                             <form action="{{ route('update.booking.status', $editData->id) }}" method="POST">
                                 @csrf
