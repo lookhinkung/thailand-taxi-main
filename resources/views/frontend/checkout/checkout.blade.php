@@ -173,7 +173,7 @@
                                         <tr>
                                             <td>
                                                 <p>Total days <br> <b>
-                                                        ({{ $book_data['check_in'] }}-{{ $book_data['check_out'] }})</b>
+                                                        ({{ $book_data['check_in'] }} / {{ $book_data['check_out'] }})</b>
                                                 </p>
                                             </td>
                                             <td style="text-align: right">

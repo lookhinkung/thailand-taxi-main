@@ -84,7 +84,7 @@
                 <li> <a href="{{ route('booking.list') }}"><i class='bx bx-radio-circle'>
                     </i>Booking list</a>
                 </li>
-                <li> <a href="{{ route('add.car.list') }}"><i class='bx bx-radio-circle'></i>Product
+                <li> <a href="{{ route('add.car.list') }}"><i class='bx bx-radio-circle'></i>
                         Add Car List</a>
                 </li>
                 
