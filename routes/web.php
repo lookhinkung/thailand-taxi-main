@@ -159,7 +159,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/assign_car/{id}','AssignCar')->name('assign_car');
         Route::get('/assign_car/store/{booking_id}/{car_number_id}','AssignCarStore')->name('assign_car_store');
         Route::get('/assign_car/delete/{id}','AssignCarDelete')->name('assign_car_delete');
-   
+
+        /////////// User Booking Route
+        Route::get('/user/booking','UserBooking')->name('user.booking'); 
+        Route::get('/user/invoice/{id}','UserInvoice')->name('user.invoice');
    
    
     });

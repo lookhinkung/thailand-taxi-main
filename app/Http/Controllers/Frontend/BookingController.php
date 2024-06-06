@@ -93,7 +93,7 @@ class BookingController extends Controller
             'pick_from' => 'required',
             'phone' => 'required',
             'drop_to' => 'required',
-            'pick_time'=>'required',
+            'pick_time' => 'required',
         ]);
 
         $book_data = Session::get('book_date');
@@ -205,17 +205,17 @@ class BookingController extends Controller
 
     }   // End Method 
 
-    
+
     public function UpdateBooking(Request $request, $id)
     {
 
         $data = Booking::find($id);
         // $data->number_of_cars = $request->number_of_cars;
-        $data->check_in = date('Y-m-d',strtotime($request->check_in));
-        $data->check_out = date('Y-m-d',strtotime($request->check_out));
+        $data->check_in = date('Y-m-d', strtotime($request->check_in));
+        $data->check_out = date('Y-m-d', strtotime($request->check_out));
         $data->save();
 
-        CarBookedDate::where('booking_id',$id)->delete();
+        CarBookedDate::where('booking_id', $id)->delete();
 
         $sdate = date('Y-m-d', strtotime($request->check_in));
         $edate = date('Y-m-d', strtotime($request->check_out));
@@ -233,37 +233,39 @@ class BookingController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
-        
+
 
     }   // End Method 
 
 
 
-    public function AssignCar($booking_id){
+    public function AssignCar($booking_id)
+    {
 
         $booking = Booking::find($booking_id);
-        $booking_date_array = CarBookedDate::where('booking_id',$booking_id)
-        ->pluck('book_date')->toArray();
+        $booking_date_array = CarBookedDate::where('booking_id', $booking_id)
+            ->pluck('book_date')->toArray();
 
-        $check_date_booking_ids = CarBookedDate::whereIn('book_date',$booking_date_array)
-        ->where('car_id',$booking->car_id)->distinct()->pluck('booking_id')->toArray();
+        $check_date_booking_ids = CarBookedDate::whereIn('book_date', $booking_date_array)
+            ->where('car_id', $booking->car_id)->distinct()->pluck('booking_id')->toArray();
 
-        $booking_ids = Booking::whereIn('id',$check_date_booking_ids)->pluck('id')->toArray();
+        $booking_ids = Booking::whereIn('id', $check_date_booking_ids)->pluck('id')->toArray();
 
-        $assign_car_id = BookingCarList::whereIn('booking_id',$booking_ids)->pluck
+        $assign_car_id = BookingCarList::whereIn('booking_id', $booking_ids)->pluck
         ('car_number_id')->toArray();
 
-        $car_numbers = CarNumber::where('car_id',$booking->car_id)->whereNotIn('id',$assign_car_id)
-        ->where('status','Active')->get();
+        $car_numbers = CarNumber::where('car_id', $booking->car_id)->whereNotIn('id', $assign_car_id)
+            ->where('status', 'Active')->get();
 
-        return view('backend.booking.assign_car',compact('booking','car_numbers'));
+        return view('backend.booking.assign_car', compact('booking', 'car_numbers'));
 
     }// End Method
 
-    public function AssignCarStore($booking_id,$car_number_id){
+    public function AssignCarStore($booking_id, $car_number_id)
+    {
 
         $booking = Booking::find($booking_id);
-        $check_data = BookingCarList::where('booking_id',$booking_id)->count();
+        $check_data = BookingCarList::where('booking_id', $booking_id)->count();
 
         // if ($check_data < $booking->number_of_cars) {
         if ($check_data < 1) {
@@ -278,19 +280,20 @@ class BookingController extends Controller
                 'alert-type' => 'success'
             );
             return redirect()->back()->with($notification);
-            
-        }else{
+
+        } else {
             $notification = array(
                 'message' => 'Car Already Assign',
                 'alert-type' => 'error'
             );
             return redirect()->back()->with($notification);
         }
-        
+
 
     }// End Method
 
-    public function AssignCarDelete($id){
+    public function AssignCarDelete($id)
+    {
 
         $assign_car = BookingCarList::find($id);
         $assign_car->delete();
@@ -304,18 +307,41 @@ class BookingController extends Controller
     }// End Method
 
 
-    public function DownloadInvoice($id){
+    public function DownloadInvoice($id)
+    {
 
         $editData = Booking::with('car')->find($id);
-        $pdf = Pdf::loadView('backend.booking.booking_invoice',compact('editData'))
-        ->setPaper('a4')->setOption([
-            'tempDir' => public_path(),
-            'chroot' => public_path(),
-        ]);
+        $pdf = Pdf::loadView('backend.booking.booking_invoice', compact('editData'))
+            ->setPaper('a4')->setOption([
+                    'tempDir' => public_path(),
+                    'chroot' => public_path(),
+                ]);
         return $pdf->download('invoice.pdf');
 
     }// End Method
- 
+
+
+    public function UserBooking()
+    {
+
+        $id = Auth::user()->id;
+        $allData = Booking::where('user_id', $id)->orderBy('id', 'desc')->get();
+        return view('frontend.dashboard.user_booking', compact('allData'));
+
+    }// End Method
+
+    public function UserInvoice($id)
+    {
+
+        $editData = Booking::with('car')->find($id);
+        $pdf = Pdf::loadView('backend.booking.booking_invoice', compact('editData'))
+            ->setPaper('a4')->setOption([
+                    'tempDir' => public_path(),
+                    'chroot' => public_path(),
+                ]);
+        return $pdf->download('invoice.pdf');
+
+    }// End Method
 
 
 
