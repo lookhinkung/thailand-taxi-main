@@ -66,7 +66,7 @@ class CarListController extends Controller
             return redirect()->back()->with($notification);
         }
         $car = Car::find($request['car_id']);
-        if ($car->car_capacity < $request->number_of_person) {
+        if ($car->total_passenger < $request->number_of_person) {
             $notification = array(
                 'message' => 'You Enter Maximum Number of Guest',
                 'alert-type' => 'error'

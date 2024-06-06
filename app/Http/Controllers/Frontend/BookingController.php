@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\CarNumber;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\BookArea;
@@ -300,7 +301,21 @@ class BookingController extends Controller
         );
         return redirect()->back()->with($notification);
 
-    }
+    }// End Method
+
+
+    public function DownloadInvoice($id){
+
+        $editData = Booking::with('car')->find($id);
+        $pdf = Pdf::loadView('backend.booking.booking_invoice',compact('editData'))
+        ->setPaper('a4')->setOption([
+            'tempDir' => public_path(),
+            'chroot' => public_path(),
+        ]);
+        return $pdf->download('invoice.pdf');
+
+    }// End Method
+ 
 
 
 

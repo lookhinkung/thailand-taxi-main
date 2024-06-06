@@ -11,7 +11,9 @@
         <tr>
             <td> {{$car_number->car_no}} </td>
             <td>
-                <a href=" {{route('assign_car_store',[$booking->id,$car_number->id])}} " class="btn bg-primary"><i class="lni lni-circle-plus"></i></a>
+                <a href=" {{route('assign_car_store',[$booking->id,$car_number->id])}} " class="text-primary">
+                    <i class="lni lni-circle-plus"></i>
+                </a>
             </td>
         </tr>
         @endforeach
