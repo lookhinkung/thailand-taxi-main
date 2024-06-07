@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\BookConfirm;
 use App\Models\CarNumber;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -19,6 +20,8 @@ use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use App\Models\BookingCarList;
+use Illuminate\Support\Facades\Mail;
+
 
 use Illuminate\Support\Facades\Log;
 
@@ -196,6 +199,22 @@ class BookingController extends Controller
         $booking->status = $request->status;
         $booking->save();
 
+        /// Start Sent Email 
+
+        $sendmail = Booking::find($id);
+
+        $data = [
+            'check_in' => $sendmail->check_in,
+            'check_out' => $sendmail->check_out,
+            'name' => $sendmail->name,
+            'email' => $sendmail->email,
+            'phone' => $sendmail->phone,
+        ];
+
+        Mail::to($sendmail->email)->send(new BookConfirm($data));
+
+        /// End Sent Email 
+
         $notification = array(
             'message' => 'Information Updated Successfully',
             'alert-type' => 'success'
@@ -342,6 +361,18 @@ class BookingController extends Controller
         return $pdf->download('invoice.pdf');
 
     }// End Method
+
+    public function DeleteBooking($id)
+    {
+
+        Booking::find($id)->delete();
+
+        $notification = array(
+            'message' => 'Booking Deleted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }//End method
 
 
 

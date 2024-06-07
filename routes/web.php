@@ -10,6 +10,8 @@ use App\Http\Controllers\Backend\CarController;
 use App\Http\Controllers\Frontend\FrontendCarController;
 use App\Http\Controllers\Frontend\BookingController;
 use App\Http\Controllers\Backend\CarListController;
+use App\Http\Controllers\Backend\SettingController;
+
 
 
 // Route::get('/', function () {
@@ -73,6 +75,7 @@ Route::controller(BookingController::class)->group(function () {
 
     Route::get('/booking/list','BookingList')->name('booking.list'); 
     Route::get('/edit_booking/{id}','EditBooking')->name('edit_booking'); 
+    Route::get('/delete/booking/{id}', 'DeleteBooking')->name('delete.booking');
     Route::get('/download/invoice/{id}','DownloadInvoice')->name('download.invoice'); 
 
 });
@@ -85,6 +88,16 @@ Route::controller(CarListController::class)->group(function () {
     Route::post('store/car/list','StoreCarList')->name('store.car.list'); 
   
 });
+
+//Admin Car List All Route
+Route::controller(SettingController::class)->group(function () {
+
+    Route::get('smtp/setting','SmtpSetting')->name('smtp.setting'); 
+    Route::post('/smtp/update', 'SmtpUpdate')->name('smtp.update');
+
+  
+});
+
 
 
 
