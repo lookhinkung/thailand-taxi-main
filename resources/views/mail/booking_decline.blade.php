@@ -114,7 +114,7 @@
 
 		.bee-row-1 .bee-row-content,
 		.bee-row-2 .bee-row-content {
-			background-color: #9ad65b;
+			background-color: #f94402;
 			background-repeat: no-repeat;
 			border-radius: 0;
 			color: #000
@@ -206,7 +206,7 @@
 		}
 
 		.bee-row-14 .bee-row-content {
-			background-color: #9ad65b;
+			background-color: #f94402;
 			background-repeat: no-repeat;
 			color: #000
 		}
@@ -354,7 +354,7 @@
 <h1 style="color:#199e59;direction:ltr;font-family:'Roboto Slab', Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:74px;font-weight:700;letter-spacing:normal;line-height:120%;text-align:left;margin-top:0;margin-bottom:0;">Thailand Taxi<br/> </h1>
 </div>
 <div class="bee-block bee-block-3 bee-paragraph">
-<p>Private Limo Taxi Cab & Airport Transfer Services Throughout Thailand<br/>Our Thailand Taxi Transfers is a reliable private taxi company, providing a high standard of service at a reasonable price.</p>
+<p>Private Limo Taxi Cab & Airport Transfer Services Throughout Thailand.<br/>Our Thailand Taxi Transfers is a reliable private taxi company, providing a high standard of service at a reasonable price.</p>
 </div>
 <div class="bee-block bee-block-4 bee-button"><a class="bee-button-content" href="http://www.example.com" style="font-size: 14px; background-color: #3c3c3c; border-bottom: 0px solid transparent; border-left: 0px solid transparent; border-radius: 20px; border-right: 0px solid transparent; border-top: 0px solid transparent; color: #ffffff; direction: ltr; font-family: inherit; font-weight: 400; letter-spacing: 1px; max-width: 100%; padding-bottom: 5px; padding-left: 40px; padding-right: 40px; padding-top: 5px; width: auto; display: inline-block;" target="_self"><span dir="ltr" style="word-break: break-word; font-size: 14px; line-height: 200%; letter-spacing: 1px;">DISCOVER</span></a></div>
 </div>
@@ -365,8 +365,7 @@
 <div class="bee-row-content">
 <div class="bee-col bee-col-1 bee-col-w12">
 <div class="bee-block bee-block-1 bee-paragraph">
-	<br>
-<p>Your Booking is Confirm!</p>
+<p class="mt-5">Your Booking is Decline.</p>
 </div>
 </div>
 </div>
@@ -380,8 +379,7 @@
 </div>
 <div class="bee-col bee-col-2 bee-col-w8">
 <div class="bee-block bee-block-1 bee-paragraph">
-<p><strong>Hell Sir </strong><br/><strong>Your Request is confirm on this data. </strong></p>
-
+    <p><strong>Hello Sir,</strong><br/><strong>We regret to inform you that we are unable to fulfill your request at this time.</strong></p>
 <h4>check in : {{$booking['check_in']}} </h4>
 <h4>check Out : {{$booking['check_out']}} </h4>
 <h4>User Name : {{$booking['name']}} </h4>
@@ -389,7 +387,7 @@
 <h4>Phone : {{$booking['phone']}} </h4>
 
 
-{{-- <p>Aliquam purus commodo magnis ipsum dolor sit amet, consectetur adipiscing elit habitasse est in rhoncus libero ut. Aenean viverra fermentum, volutpat, neque amet, justo.<br/>Socis natoqu eagnis dist mte dulmuese feugiata lecen erment.</p> --}}
+<p>Aliquam purus commodo magnis ipsum dolor sit amet, consectetur adipiscing elit habitasse est in rhoncus libero ut. Aenean viverra fermentum, volutpat, neque amet, justo.<br/>Socis natoqu eagnis dist mte dulmuese feugiata lecen erment.</p>
 </div>
 <div class="bee-block bee-block-2 bee-button"><a class="bee-button-content" href="http://www.example.com" style="font-size: 14px; background-color: #3c3c3c; border-bottom: 0px solid transparent; border-left: 0px solid transparent; border-radius: 20px; border-right: 0px solid transparent; border-top: 0px solid transparent; color: #ffffff; direction: ltr; font-family: inherit; font-weight: 400; letter-spacing: 1px; max-width: 100%; padding-bottom: 5px; padding-left: 40px; padding-right: 40px; padding-top: 5px; width: auto; display: inline-block;" target="_self"><span dir="ltr" style="word-break: break-word; font-size: 14px; line-height: 200%; letter-spacing: 1px;">READ MORE</span></a></div>
 </div>
@@ -499,13 +497,13 @@
 <p style="font-size: 14px; line-height: 16px; text-align: center;"><span style="font-size: 18px; line-height: 21px;"><strong style=""><span style="line-height: 14px;">About</span></strong></span></p>
 </div>
 </div>
-{{-- <div class="bee-block bee-block-2 bee-text">
+<div class="bee-block bee-block-2 bee-text">
 <div class="bee-text-content" style="line-height: 150%; font-size: 12px; font-family: inherit; color: #fafafa;">
 <p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Lorem ipsum dolor sit amet, adipiscing. </span></p>
 <p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Aenean eget scelerisque magna.</span></p>
 <p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Cras interdum do mattis eugravid. </span></p>
 </div>
-</div> --}}
+</div>
 </div>
 <div class="bee-col bee-col-3 bee-col-w3">
 <div class="bee-block bee-block-1 bee-text">
@@ -515,11 +513,9 @@
 </div>
 <div class="bee-block bee-block-2 bee-text">
 <div class="bee-text-content" style="line-height: 150%; font-size: 12px; font-family: inherit; color: #fafafa;">
-<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">53 M6, Haad Chao Samran Road,
-	Tumbol Nong Plub, Muang
-	Phetchaburi, 76000. Thailand</span></p>
-<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">bkkpremiumlimo@gmail.com </span></p>
-<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">+66 0982623132</span></p>
+<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Your Street 12, 34567 AB City</span></p>
+<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">info@example.com </span></p>
+<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">(+1) 123 456 789</span></p>
 </div>
 </div>
 </div>

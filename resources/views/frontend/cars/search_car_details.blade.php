@@ -358,7 +358,7 @@
        }
     })
  </script>
-    </script>
+    
 @endsection
 
 

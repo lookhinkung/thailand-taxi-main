@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Mail\BookConfirm;
+use App\Mail\BookDecline;
 use App\Models\CarNumber;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -21,7 +22,6 @@ use Illuminate\Support\Facades\Auth;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use App\Models\BookingCarList;
 use Illuminate\Support\Facades\Mail;
-
 
 use Illuminate\Support\Facades\Log;
 
@@ -201,17 +201,17 @@ class BookingController extends Controller
 
         /// Start Sent Email 
 
-        $sendmail = Booking::find($id);
+        // $sendmail = Booking::find($id);
 
-        $data = [
-            'check_in' => $sendmail->check_in,
-            'check_out' => $sendmail->check_out,
-            'name' => $sendmail->name,
-            'email' => $sendmail->email,
-            'phone' => $sendmail->phone,
-        ];
+        // $data = [
+        //     'check_in' => $sendmail->check_in,
+        //     'check_out' => $sendmail->check_out,
+        //     'name' => $sendmail->name,
+        //     'email' => $sendmail->email,
+        //     'phone' => $sendmail->phone,
+        // ];
 
-        Mail::to($sendmail->email)->send(new BookConfirm($data));
+        // Mail::to($sendmail->email)->send(new BookConfirm($data));
 
         /// End Sent Email 
 
@@ -276,6 +276,8 @@ class BookingController extends Controller
         $car_numbers = CarNumber::where('car_id', $booking->car_id)->whereNotIn('id', $assign_car_id)
             ->where('status', 'Active')->get();
 
+        
+
         return view('backend.booking.assign_car', compact('booking', 'car_numbers'));
 
     }// End Method
@@ -293,6 +295,8 @@ class BookingController extends Controller
             $assign_data->car_id = $booking->car_id;
             $assign_data->car_number_id = $car_number_id;
             $assign_data->save();
+
+            
 
             $notification = array(
                 'message' => 'Car Assign Successfully',
@@ -329,6 +333,21 @@ class BookingController extends Controller
     public function DownloadInvoice($id)
     {
 
+        /// Start Sent Email 
+
+        $sendmail = Booking::find($id);
+
+        $data = [
+            'check_in' => $sendmail->check_in,
+            'check_out' => $sendmail->check_out,
+            'name' => $sendmail->name,
+            'email' => $sendmail->email,
+            'phone' => $sendmail->phone,
+        ];
+
+        Mail::to($sendmail->email)->send(new BookConfirm($data));
+
+        /// End Sent Email 
         $editData = Booking::with('car')->find($id);
         $pdf = Pdf::loadView('backend.booking.booking_invoice', compact('editData'))
             ->setPaper('a4')->setOption([
@@ -365,6 +384,21 @@ class BookingController extends Controller
     public function DeleteBooking($id)
     {
 
+        /// Start Sent Email 
+
+        $sendmail = Booking::find($id);
+
+        $data = [
+            'check_in' => $sendmail->check_in,
+            'check_out' => $sendmail->check_out,
+            'name' => $sendmail->name,
+            'email' => $sendmail->email,
+            'phone' => $sendmail->phone,
+        ];
+
+        Mail::to($sendmail->email)->send(new BookDecline($data));
+
+        /// End Sent Email 
         Booking::find($id)->delete();
 
         $notification = array(

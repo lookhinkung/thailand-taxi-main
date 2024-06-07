@@ -31,7 +31,7 @@
                     @csrf
                     <div class="col-md-4">
                         <label for="cartype_id" class="form-label">Car Type</label>
-                        <select name="car_id" id="car_id" class="form-select">
+                        <select name="car_id" id="car_id"  class="form-select">
                             <option selected="">Select Car Type</option>
                             @foreach ($cartype as $item)
                             <option value="{{$item->car->id}}"{{ collect(old('cartype_id'))
