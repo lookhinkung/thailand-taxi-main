@@ -114,7 +114,7 @@
 
 		.bee-row-1 .bee-row-content,
 		.bee-row-2 .bee-row-content {
-			background-color: #f94402;
+			background-color: #9ad65b;
 			background-repeat: no-repeat;
 			border-radius: 0;
 			color: #000
@@ -206,7 +206,7 @@
 		}
 
 		.bee-row-14 .bee-row-content {
-			background-color: #f94402;
+			background-color: #9ad65b;
 			background-repeat: no-repeat;
 			color: #000
 		}
@@ -365,7 +365,8 @@
 <div class="bee-row-content">
 <div class="bee-col bee-col-1 bee-col-w12">
 <div class="bee-block bee-block-1 bee-paragraph">
-<p class="mt-5">Your Booking is Decline.</p>
+	<br>
+<p class="mt-5 padding-top: 20px;">Your Booking is Decline.</p>
 </div>
 </div>
 </div>
@@ -379,15 +380,17 @@
 </div>
 <div class="bee-col bee-col-2 bee-col-w8">
 <div class="bee-block bee-block-1 bee-paragraph">
-    <p><strong>Hello Sir,</strong><br/><strong>We regret to inform you that we are unable to fulfill your request at this time.</strong></p>
-<h4>check in : {{$booking['check_in']}} </h4>
+    <p>Thank you for choosing Thailand Taxi for your transportation needs. We appreciate the opportunity to serve you.</p>
+
+	<p>Unfortunately, we regret to inform you that we are unable to accommodate your cab booking request at this time. </p>
+	<h4>check in : {{$booking['check_in']}} </h4>
 <h4>check Out : {{$booking['check_out']}} </h4>
 <h4>User Name : {{$booking['name']}} </h4>
 <h4>Email : {{$booking['email']}} </h4>
 <h4>Phone : {{$booking['phone']}} </h4>
 
 
-<p>Aliquam purus commodo magnis ipsum dolor sit amet, consectetur adipiscing elit habitasse est in rhoncus libero ut. Aenean viverra fermentum, volutpat, neque amet, justo.<br/>Socis natoqu eagnis dist mte dulmuese feugiata lecen erment.</p>
+<p>We apologize for any inconvenience this may cause and encourage you to consider booking with us in the future. If you have any questions or need further assistance, please feel free to contact us at.</p>
 </div>
 <div class="bee-block bee-block-2 bee-button"><a class="bee-button-content" href="http://www.example.com" style="font-size: 14px; background-color: #3c3c3c; border-bottom: 0px solid transparent; border-left: 0px solid transparent; border-radius: 20px; border-right: 0px solid transparent; border-top: 0px solid transparent; color: #ffffff; direction: ltr; font-family: inherit; font-weight: 400; letter-spacing: 1px; max-width: 100%; padding-bottom: 5px; padding-left: 40px; padding-right: 40px; padding-top: 5px; width: auto; display: inline-block;" target="_self"><span dir="ltr" style="word-break: break-word; font-size: 14px; line-height: 200%; letter-spacing: 1px;">READ MORE</span></a></div>
 </div>
@@ -499,9 +502,9 @@
 </div>
 <div class="bee-block bee-block-2 bee-text">
 <div class="bee-text-content" style="line-height: 150%; font-size: 12px; font-family: inherit; color: #fafafa;">
-<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Lorem ipsum dolor sit amet, adipiscing. </span></p>
-<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Aenean eget scelerisque magna.</span></p>
-<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Cras interdum do mattis eugravid. </span></p>
+<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">53 M6, Haad Chao Samran Road, </span></p>
+<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Tumbol Nong Plub, Muang</span></p>
+<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Phetchaburi, 76000. Thailand </span></p>
 </div>
 </div>
 </div>
@@ -513,9 +516,9 @@
 </div>
 <div class="bee-block bee-block-2 bee-text">
 <div class="bee-text-content" style="line-height: 150%; font-size: 12px; font-family: inherit; color: #fafafa;">
-<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Your Street 12, 34567 AB City</span></p>
-<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">info@example.com </span></p>
-<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">(+1) 123 456 789</span></p>
+{{-- <p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">Your Street 12, 34567 AB City</span></p> --}}
+<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">bkkpremiumlimo@gmail.com</span></p>
+<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">(+66) 0982623132</span></p>
 </div>
 </div>
 </div>
@@ -539,8 +542,8 @@
 <div class="bee-block bee-block-1 bee-icons">
 <div class="bee-icon bee-icon-last">
 <div class="bee-content">
-<div class="bee-icon-image"><a href="https://www.designedwithbee.com/" target="_blank" title="Designed with BEE"><img alt="Designed with BEE" height="32px" src="images/bee.png" width="auto"/></a></div>
-<div class="bee-icon-label bee-icon-label-right"><a href="https://www.designedwithbee.com/" target="_blank" title="Designed with BEE">Designed with BEE</a></div>
+{{-- <div class="bee-icon-image"><a href="https://www.designedwithbee.com/" target="_blank" title="Designed with BEE"><img alt="Designed with BEE" height="32px" src="images/bee.png" width="auto"/></a></div>
+<div class="bee-icon-label bee-icon-label-right"><a href="https://www.designedwithbee.com/" target="_blank" title="Designed with BEE">Designed with BEE</a></div> --}}
 </div>
 </div>
 </div>

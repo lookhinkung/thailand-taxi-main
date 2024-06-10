@@ -177,7 +177,7 @@
 									
                                     <div class="col-md-12" style="margin-top: 20px;">
                                         <button type="submit" class="btn btn-primary">Update</button>
-                                        <a href="{{route('download.invoice',$editData->id)}}" class="btn btn-warning px-3 radius-10"><i class="lni lni-download"></i>Invoice</a>
+                                        <a href="{{route('download.invoice',$editData->id)}}" class="btn btn-warning px-3 radius-10"><i class="lni lni-download"></i>Send Invoice</a>
                                     </div>
                                 </div>
                             </form>
@@ -250,16 +250,16 @@
 
                     <ul class="list-group list-group-flush large-text">
 						<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">
-							Name <span class="badge bg-success rounded-pill">{{ $editData['user']['name'] }}</span>
+							Name <span class="badge bg-success rounded-pill px-3 radius-10">{{ $editData['user']['name'] }}</span>
 						</li>
 						<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
-							Email <span class="badge bg-danger rounded-pill">{{ $editData['user']['email'] }}</span>
+							Email <span class="badge bg-danger rounded-pill px-3 radius-10">{{ $editData['user']['email'] }}</span>
 						</li>
 						<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
-							Phone <span class="badge bg-primary rounded-pill">{{ $editData['user']['phone'] }}</span>
+							Phone <span class="badge bg-primary rounded-pill px-3 radius-10">{{ $editData['user']['phone'] }}</span>
 						</li>
 						<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
-							Nation <span class="badge bg-warning text-dark rounded-pill">{{ $editData->nationality }}</span>
+							Nation <span class="badge bg-warning text-dark rounded-pill px-3 radius-10">{{ $editData->nationality }}</span>
 						</li>
 					</ul>
 					

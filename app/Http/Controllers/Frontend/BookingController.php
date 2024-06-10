@@ -199,21 +199,6 @@ class BookingController extends Controller
         $booking->status = $request->status;
         $booking->save();
 
-        /// Start Sent Email 
-
-        // $sendmail = Booking::find($id);
-
-        // $data = [
-        //     'check_in' => $sendmail->check_in,
-        //     'check_out' => $sendmail->check_out,
-        //     'name' => $sendmail->name,
-        //     'email' => $sendmail->email,
-        //     'phone' => $sendmail->phone,
-        // ];
-
-        // Mail::to($sendmail->email)->send(new BookConfirm($data));
-
-        /// End Sent Email 
 
         $notification = array(
             'message' => 'Information Updated Successfully',
