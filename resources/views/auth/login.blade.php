@@ -69,6 +69,11 @@
                                         Sign In Now
                                     </button>
                                 </div>
+                                <ul class="social-link">
+                                    <li>
+                                        <a href="{{ route('google-auth') }}" target="_blank"><i class='bx bxl-google'></i></a>
+                                    </li>
+                                </ul>
 
                                 <div class="col-12">
                                     <p class="account-desc">

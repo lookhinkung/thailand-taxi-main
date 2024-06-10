@@ -152,7 +152,7 @@ class TeamController extends Controller
                 'short_title' => $request->short_title,
                 'main_title' => $request->main_title,
                 'short_desc' => $request->short_desc,
-                'link_url' => $request->link_url,
+                // 'link_url' => $request->link_url,
                 'image' => $save_url, 
             ]);
 
@@ -171,7 +171,7 @@ class TeamController extends Controller
                 'short_title' => $request->short_title,
                 'main_title' => $request->main_title,
                 'short_desc' => $request->short_desc,
-                'link_url' => $request->link_url, 
+                // 'link_url' => $request->link_url, 
             ]);
 
             $notification = array(

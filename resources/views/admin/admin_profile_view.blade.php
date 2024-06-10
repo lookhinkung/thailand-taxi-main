@@ -104,7 +104,7 @@
                 
                 <div class="row mb-3">
                     <div class="col-sm-3">
-                        <h6 class="mb-0">Upload photo</h6>
+                        <h6 class="mb-0">"Upload photo</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                         <input class="form-control" name="photo" type="file" id="image">

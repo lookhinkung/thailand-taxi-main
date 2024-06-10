@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\CarTypeController;
 use App\Http\Controllers\Backend\CarController;
@@ -181,4 +182,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
 });//End group Auh Middleware
+
+Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google-auth');
+Route::get('auth/google/call-back',[GoogleAuthController::class,'callbackGoogle']);
 
