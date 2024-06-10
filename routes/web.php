@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\FrontendCarController;
 use App\Http\Controllers\Frontend\BookingController;
 use App\Http\Controllers\Backend\CarListController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\TestimonialController;
 
 
 
@@ -87,6 +88,18 @@ Route::controller(CarListController::class)->group(function () {
     Route::get('view/car/list','ViewCarList')->name('view.car.list'); 
     Route::get('add/car/list','AddCarList')->name('add.car.list'); 
     Route::post('store/car/list','StoreCarList')->name('store.car.list'); 
+  
+});
+
+//Testimonial All Route
+Route::controller(TestimonialController::class)->group(function () {
+
+    Route::get('all/testimonial','AllTestimonial')->name('all.testimonial'); 
+    Route::get('add/testimonial','AddTestimonial')->name('add.testimonial'); 
+    Route::post('store/testimonial','StoreTestimonial')->name('testimonial.store'); 
+    Route::get('edit/testimonial/{id}','EditTestimonial')->name('edit.testimonial'); 
+    Route::post('update/testimonial','UpdateTestimonial')->name('testimonial.update');
+    Route::get('/delete/testimonial/{id}', 'DeleteTestimonial')->name('delete.testimonial');
   
 });
 
@@ -181,7 +194,7 @@ Route::middleware(['auth'])->group(function () {
    
     });
 
-});//End group Auh Middleware
+});//End group Auth Middleware
 
 Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google-auth');
 Route::get('auth/google/call-back',[GoogleAuthController::class,'callbackGoogle']);
