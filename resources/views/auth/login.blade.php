@@ -46,7 +46,7 @@
     justify-content: center;
     width: 50px;
     height: 50px;
-    background-color: #4285F4;
+    background-color: #000000;
     color: white;
     border-radius: 50%;
     text-decoration: none;
@@ -70,7 +70,7 @@
     margin-top: 20px;
 }
 
-}
+
 </style>
 <!-- Inner Banner -->
 {{-- <div class="inner-banner inner-bg9">
@@ -147,6 +147,7 @@
                                         <i class='bx bxl-google'></i>
                                     </a>
                                 </div>
+                                
 
                                 <div class="col-12 text-center mt-3">
                                     <p class="account-desc">

@@ -27,12 +27,20 @@ class GoogleAuthController extends Controller
                 ]);
 
                 Auth::login($new_user);
-                return redirect()->intended('dashboard');
+
+                $notification = array(
+                    'message' =>'User Login Successfully',
+                    'alert-type' => 'success'
+                );
+                return redirect()->intended('/')->with($notification);
             }
             else{
                 Auth::login($user);
-
-                return redirect()->intended('dashboard');
+                $notification = array(
+                    'message' =>'User Login Successfully',
+                    'alert-type' => 'success'
+                );
+                return redirect()->intended('/')->with($notification);
             }
         } catch (\Throwable $th) {
             dd('Something went wrong'.$th->getMessage());

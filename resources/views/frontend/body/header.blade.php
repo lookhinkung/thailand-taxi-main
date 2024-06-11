@@ -1,7 +1,7 @@
 <header class="top-header top-header-bg">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-10 col-md-10">
+            <div class="col-lg-10 col-md-9">
                 <div class="header-right">
                     <ul>
                         <li>
@@ -29,10 +29,10 @@
                                 <i class='bx bxs-user-pin'></i>
                                 <a href="{{ route('login') }}">Login</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <i class='bx bxs-user-rectangle'></i>
                                 <a href="{{ route('register') }}">Register</a>
-                            </li>
+                            </li> --}}
                         @endauth
 
 
