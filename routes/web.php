@@ -126,6 +126,9 @@ Route::controller(BlogController::class)->group(function () {
     Route::post('update/blog/post','UpdateBlogPost')->name('update.blog.post');  
     Route::get('delete/blog/post/{id}','DeleteBlogPost')->name('delete.blog.post');
 
+
+    //////////// Frontend //////////////////////
+
 });
 
 //Admin Car List All Route
@@ -220,6 +223,18 @@ Route::middleware(['auth'])->group(function () {
     });
 
 });//End group Auth Middleware
+
+
+//Frontend Blog All route
+Route::controller(BlogController::class)->group(function () {
+
+    Route::get('blog/details/{slug}','BlogDetails'); 
+    Route::get('blog/cat/list/{id}','BlogCatList'); 
+    Route::get('/blog', 'BlogList')->name('blog.list');
+  
+});
+
+
 
 Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google-auth');
 Route::get('auth/google/call-back',[GoogleAuthController::class,'callbackGoogle']);

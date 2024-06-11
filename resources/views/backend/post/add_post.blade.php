@@ -44,7 +44,7 @@
 
                     <div class="col-md-6">
                         <label for="input1" class="form-label">Post Title</label>
-                        <input type="text" name="post_titile" class="form-control" id="input1"  >
+                        <input type="text" name="post_title" class="form-control" id="input1"  >
                     </div>
 
 

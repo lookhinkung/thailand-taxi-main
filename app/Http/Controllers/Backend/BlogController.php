@@ -94,8 +94,8 @@ class BlogController extends Controller
 
             'blogcat_id' => $request->blogcat_id,
             'user_id' => Auth::user()->id,
-            'post_title' => $request->post_titile,
-            'post_slug' => strtolower(str_replace(' ', '-', $request->post_titile)),
+            'post_title' => $request->post_title,
+            'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
             'short_desc' => $request->short_desc,
             'long_desc' => $request->long_desc,
             'post_image' => $save_url,
@@ -134,8 +134,8 @@ class BlogController extends Controller
 
                 'blogcat_id' => $request->blogcat_id,
                 'user_id' => Auth::user()->id,
-                'post_title' => $request->post_titile,
-                'post_slug' => strtolower(str_replace(' ', '-', $request->post_titile)),
+                'post_title' => $request->post_title,
+                'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
                 'short_desc' => $request->short_desc,
                 'long_desc' => $request->long_desc,
                 'post_image' => $save_url,
@@ -153,8 +153,8 @@ class BlogController extends Controller
 
                 'blogcat_id' => $request->blogcat_id,
                 'user_id' => Auth::user()->id,
-                'post_title' => $request->post_titile,
-                'post_slug' => strtolower(str_replace(' ', '-', $request->post_titile)),
+                'post_title' => $request->post_title,
+                'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
                 'short_desc' => $request->short_desc,
                 'long_desc' => $request->long_desc,
                 'created_at' => Carbon::now(),
@@ -184,4 +184,38 @@ class BlogController extends Controller
         return redirect()->back()->with($notification);
 
     }//End method
+
+    public function BlogDetails($slug){
+        
+        $blog = BlogPost::where('post_slug',$slug)->first();
+        $bcategory = Blogcategory::latest()->get();
+        $lpost = BlogPost::latest()->limit(3)->get();
+        return view('frontend.blog.blog_details',compact('blog','bcategory','lpost'));
+
+
+    }//End method
+
+    public function BlogCatList($id){
+        
+        $blog = BlogPost::where('blogcat_id',$id)->get();
+        $namecat = Blogcategory::where('id',$id)->first();
+        $bcategory = Blogcategory::latest()->get();
+        $lpost = BlogPost::latest()->limit(3)->get();
+        return view('frontend.blog.blog_cat_list',compact('blog','bcategory','lpost','namecat'));
+
+
+    }//End method
+
+    public function BlogList(){
+
+        $blog = BlogPost::latest()->get();
+        $bcategory = BlogCategory::latest()->get();
+        $lpost = BlogPost::latest()->limit(3)->get();
+
+        return view('frontend.blog.blog_all',compact('blog','bcategory','lpost'));
+
+
+     }// End Method 
+
+
 }

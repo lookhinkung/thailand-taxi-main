@@ -47,25 +47,21 @@
 
                                     <div class="col-md-6">
                                         <label for="input1" class="form-label">Post Title</label>
-                                        <input type="text" name="post_titile" class="form-control"
+                                        <input type="text" name="post_title" class="form-control"
                                          id="input1" value="{{$post->post_title}}">
                                     </div>
 
 
                                     <div class="col-md-12">
                                         <label for="input11" class="form-label">Short Description</label>
-                                        <textarea name="short_desc" class="form-control" id="input11" rows="3">
-                                            {{$post->short_desc}}
-                                        </textarea>
+                                        <textarea name="short_desc" class="form-control" id="input11" rows="3">{{$post->short_desc}}</textarea>
                                     </div>
 
 
 
                                     <div class="col-md-12">
                                         <label for="input11" class="form-label">Long Description</label>
-                                        <textarea name="long_desc" class="form-control" id="myeditorinstance">
-                                            {!!$post->long_desc!!}
-                                        </textarea>
+                                        <textarea name="long_desc" class="form-control" id="myeditorinstance">{!!$post->long_desc!!}</textarea>
                                     </div>
 
                                     <div class="col-md-6">
