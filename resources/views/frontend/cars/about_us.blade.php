@@ -9,9 +9,9 @@
                     <a href="index.html">Home</a>
                 </li>
                 <li><i class='bx bx-chevron-right'></i></li>
-                <li>Terms & Conditions</li>
+                <li>About Us</li>
             </ul>
-            <h3>Terms & Conditions</h3>
+            <h3>About Us</h3>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
     <div class="container">
         <div class="section-title text-center">
             <span class="sp-color">Information & Notices</span>
-            <h2>Atoli Terms & Conditions</h2>
+            <h2>About Us</h2>
         </div>
         <div class="row pt-45">
             <div class="col-lg-12">
