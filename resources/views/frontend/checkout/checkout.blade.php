@@ -109,7 +109,7 @@
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <label>To <span class="required">*</span></label>
+                                        <label>Drop off<span class="required">*</span></label>
                                         <input type="text" name="drop_to" class="form-control">
                                         @if ($errors->has('drop_to'))
                                             <div class="text-danger">{{ $errors->first('drop_to') }}</div>
