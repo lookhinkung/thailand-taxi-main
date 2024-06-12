@@ -141,10 +141,17 @@ Route::controller(SettingController::class)->group(function () {
   
 });
 
+Route::controller(CommentController::class)->group(function () {
+
+    Route::get('all/comment/','AllComment')->name('all.comment'); 
+    Route::post('update/comment/status','UpdateCommentStatus')->name('update.comment.status'); 
+  
+});
 
 
 
-});//End of Group Middleware
+
+});//End Admin Group Middleware
 
 
 // Book Area All Route
@@ -235,13 +242,15 @@ Route::controller(BlogController::class)->group(function () {
   
 });
 
-
+//Frontend  Comment All route
 Route::controller(CommentController::class)->group(function () {
 
     Route::post('store/comment/','StoreComment')->name('store.comment'); 
     
   
 });
+
+
 
 
 

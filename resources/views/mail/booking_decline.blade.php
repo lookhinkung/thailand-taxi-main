@@ -356,8 +356,8 @@
 <div class="bee-block bee-block-3 bee-paragraph">
 <p>Private Limo Taxi Cab & Airport Transfer Services Throughout Thailand.<br/>Our Thailand Taxi Transfers is a reliable private taxi company, providing a high standard of service at a reasonable price.</p>
 </div>
-<div class="bee-block bee-block-4 bee-button"><a class="bee-button-content" href="http://www.example.com" style="font-size: 14px; background-color: #3c3c3c; border-bottom: 0px solid transparent; border-left: 0px solid transparent; border-radius: 20px; border-right: 0px solid transparent; border-top: 0px solid transparent; color: #ffffff; direction: ltr; font-family: inherit; font-weight: 400; letter-spacing: 1px; max-width: 100%; padding-bottom: 5px; padding-left: 40px; padding-right: 40px; padding-top: 5px; width: auto; display: inline-block;" target="_self"><span dir="ltr" style="word-break: break-word; font-size: 14px; line-height: 200%; letter-spacing: 1px;">DISCOVER</span></a></div>
-</div>
+{{-- <div class="bee-block bee-block-4 bee-button"><a class="bee-button-content" href="http://www.example.com" style="font-size: 14px; background-color: #3c3c3c; border-bottom: 0px solid transparent; border-left: 0px solid transparent; border-radius: 20px; border-right: 0px solid transparent; border-top: 0px solid transparent; color: #ffffff; direction: ltr; font-family: inherit; font-weight: 400; letter-spacing: 1px; max-width: 100%; padding-bottom: 5px; padding-left: 40px; padding-right: 40px; padding-top: 5px; width: auto; display: inline-block;" target="_self"><span dir="ltr" style="word-break: break-word; font-size: 14px; line-height: 200%; letter-spacing: 1px;">DISCOVER</span></a></div>
+</div> --}}
 <div class="bee-col bee-col-3 bee-col-w6"></div>
 </div>
 </div>
@@ -392,8 +392,8 @@
 
 <p>We apologize for any inconvenience this may cause and encourage you to consider booking with us in the future. If you have any questions or need further assistance, please feel free to contact us at.</p>
 </div>
-<div class="bee-block bee-block-2 bee-button"><a class="bee-button-content" href="http://www.example.com" style="font-size: 14px; background-color: #3c3c3c; border-bottom: 0px solid transparent; border-left: 0px solid transparent; border-radius: 20px; border-right: 0px solid transparent; border-top: 0px solid transparent; color: #ffffff; direction: ltr; font-family: inherit; font-weight: 400; letter-spacing: 1px; max-width: 100%; padding-bottom: 5px; padding-left: 40px; padding-right: 40px; padding-top: 5px; width: auto; display: inline-block;" target="_self"><span dir="ltr" style="word-break: break-word; font-size: 14px; line-height: 200%; letter-spacing: 1px;">READ MORE</span></a></div>
-</div>
+{{-- <div class="bee-block bee-block-2 bee-button"><a class="bee-button-content" href="http://www.example.com" style="font-size: 14px; background-color: #3c3c3c; border-bottom: 0px solid transparent; border-left: 0px solid transparent; border-radius: 20px; border-right: 0px solid transparent; border-top: 0px solid transparent; color: #ffffff; direction: ltr; font-family: inherit; font-weight: 400; letter-spacing: 1px; max-width: 100%; padding-bottom: 5px; padding-left: 40px; padding-right: 40px; padding-top: 5px; width: auto; display: inline-block;" target="_self"><span dir="ltr" style="word-break: break-word; font-size: 14px; line-height: 200%; letter-spacing: 1px;">READ MORE</span></a></div>
+</div> --}}
 <div class="bee-col bee-col-3 bee-col-w2">
 <div class="bee-block bee-block-1 bee-spacer">
 <div class="spacer" style="height:1px;"></div>

@@ -192,24 +192,76 @@ class BookingController extends Controller
         return view('backend.booking.edit_booking', compact('editData', 'editCarNo'));
 
     }// End Method
+
+
+    // public function UpdateBookingStatus(Request $request, $id)
+    // {
+    //     // Find the booking by its ID
+    //     $booking = Booking::find($id);
+
+    //     // Update the status with the value from the request
+    //     $booking->status = $request->status;
+
+    //     // Save the updated booking
+    //     $booking->save();
+
+    //     // Check if the status is 1
+    //     if ($request->status == 1) {
+    //         // Find the associated BookingCarList by the same ID
+    //         $assign_car = BookingCarList::find($id);
+
+    //         // If the BookingCarList entry exists, delete it
+    //         if ($assign_car) {
+    //             $assign_car->delete();
+    //         }
+    //     }
+
+    //     // Prepare a success notification
+    //     $notification = array(
+    //         'message' => 'Information Updated Successfully',
+    //         'alert-type' => 'success'
+    //     );
+
+    //     // Redirect back with the notification
+    //     return redirect('booking/list')->with($notification);
+    // } // End Method
+
+
+
     public function UpdateBookingStatus(Request $request, $id)
     {
-
+        // Find the booking by its ID
         $booking = Booking::find($id);
+
+        // Update the status with the value from the request
         $booking->status = $request->status;
+
+        // Save the updated booking
         $booking->save();
 
+        // Check if the status is 1
+        if ($request->status == 1) {
+            // Find the associated BookingCarList by the same ID
+            $assign_car = BookingCarList::where('booking_id', $id)->first();
 
+            // If the BookingCarList entry exists, delete it
+            if ($assign_car) {
+                $assign_car->delete();
+            }
+        }
+
+        // Prepare a success notification
         $notification = array(
             'message' => 'Information Updated Successfully',
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification);
+
+        // Redirect back with the notification
+        return redirect('booking/list')->with($notification);
+    }
 
 
-    }   // End Method 
-
-
+    
     public function UpdateBooking(Request $request, $id)
     {
 
@@ -261,7 +313,7 @@ class BookingController extends Controller
         $car_numbers = CarNumber::where('car_id', $booking->car_id)->whereNotIn('id', $assign_car_id)
             ->where('status', 'Active')->get();
 
-        
+
 
         return view('backend.booking.assign_car', compact('booking', 'car_numbers'));
 
@@ -281,7 +333,7 @@ class BookingController extends Controller
             $assign_data->car_number_id = $car_number_id;
             $assign_data->save();
 
-            
+
 
             $notification = array(
                 'message' => 'Car Assign Successfully',

@@ -44,7 +44,7 @@
                                 <th>In/Out Date</th>
                                 <th>Booking No</th>
                                 <th>Customer</th>
-                                <th>Status</th>
+                                {{-- <th>Status</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -84,13 +84,13 @@
                                             {{$item->customer_name}}
                                         @endif
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         @if ($item->status == 'Active')
                                         <span class="badge bg-success large-text">Published</span>
                                             @else
                                             <span class="badge bg-danger large-text">InActive</span>
                                         @endif
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
 

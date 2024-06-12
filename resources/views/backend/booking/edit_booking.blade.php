@@ -1,11 +1,12 @@
 @extends('admin.admin_dashboard')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 @section('admin')
-<style>
-    .large-text {
-        font-size: 1.2rem; /* Adjust the size as needed */
-    }
-</style>
+    <style>
+        .large-text {
+            font-size: 1.2rem;
+            /* Adjust the size as needed */
+        }
+    </style>
 
     <div class="page-content">
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
@@ -42,8 +43,8 @@
                                     {{ \Carbon\Carbon::parse($editData->created_at)->format('Y-m_d') }}</h4>
                             </div>
                             <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i
-								class='bx bxs-bar-chart-alt-2'></i>
-						</div>
+                                    class='bx bxs-bar-chart-alt-2'></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,8 +72,8 @@
 
 
             <div class="col">
-				<div class="card radius-10 border-start border-0 border-3 border-danger">
-                
+                <div class="card radius-10 border-start border-0 border-3 border-danger">
+
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
@@ -80,16 +81,19 @@
                                 <h4 class="my-1 text-warning">
                                     @if ($editData->status == '1')
                                         <span class="text-success">Active</span>
+                                    @elseif ($editData->status == '0' && $editData->assign_cars->isNotEmpty())
+                                        <span class="text-warning">On-going</span>
                                     @else
                                         <span class="text-danger">Pending</span>
                                     @endif
                                 </h4>
 
+
                             </div>
-                            
-							<div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i
-								class='bx bxs-wallet'></i>
-						</div>
+
+                            <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i
+                                    class='bx bxs-wallet'></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -118,7 +122,7 @@
                                         <td>{{ $editData->car->type->name }}</td>
                                         <td>
                                             <span class="badge bg-primary"> {{ $editData->check_in }} </span>
-                                             <br> <span class="badge bg-warning text-dark"> {{ $editData->check_out }}
+                                            <br> <span class="badge bg-warning text-dark"> {{ $editData->check_out }}
                                             </span>
                                         </td>
                                         <td>{{ $editData->pick_time }}</td>
@@ -129,55 +133,66 @@
                             </table>
 
 
-			<div style="clear:both"></div>
-			<div style="margin-top:40px; margin-bottom:20px">
-				<a href="javascript::void(0)" class="btn btn-primary assign_car">Assign Car</a>
-			</div>
-			@php
-				$assign_cars = App\Models\BookingCarList::with('car_number')->where('booking_id',$editData->id)->get();
-			@endphp
+                            <div style="clear:both"></div>
+                            <div style="margin-top:40px; margin-bottom:20px">
+                                <a href="javascript::void(0)" class="btn btn-primary assign_car">Assign Car</a>
+                            </div>
+                            @php
+                                $assign_cars = App\Models\BookingCarList::with('car_number')
+                                    ->where('booking_id', $editData->id)
+                                    ->get();
+                            @endphp
 
-			@if (count($assign_cars) > 0)
-			
-			<table class="table table-bordered">
-				<tr>
-					<th>Car Number</th>
-					<th>Action</th>
-				</tr>
-				@foreach ($assign_cars as $assign_car)
-					
-				
-				<tr>
-					<td> {{$assign_car->car_number->car_no}} </td>
-					<td>
-						<a href=" {{route('assign_car_delete',$assign_car->id)}} " id="delete">Delete</a>
-					</td>
-				</tr>
-				@endforeach
-			</table>
-			@else
-			<div class="alert alert-danger text-center">
-				Not Found Assign Car
-			</div>
-			@endif
+                            @if (count($assign_cars) > 0)
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Car Number</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    @foreach ($assign_cars as $assign_car)
+                                        <tr>
+                                            <td> {{ $assign_car->car_number->car_no }} </td>
+                                            <td>
+                                                <a href=" {{ route('assign_car_delete', $assign_car->id) }} "
+                                                    id="delete">Delete</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            @else
+                                <div class="alert alert-danger text-center">
+                                    Not Found Assign Car
+                                </div>
+                            @endif
 
                             <form action="{{ route('update.booking.status', $editData->id) }}" method="POST">
                                 @csrf
                                 <div class="row" style="margin-top:40px;">
                                     <div class="col-md-5">
                                         <label for="">Booking Status</label>
-                                        <select name="status" id="input7" class="form-select">
+                                        {{-- <select name="status" id="input7" class="form-select">
                                             <option selected="">Select Status..</option>
                                             <option value="0" {{ $editData->status == 0 ? 'selected' : '' }}>Pending
                                             </option>
                                             <option value="1" {{ $editData->status == 1 ? 'selected' : '' }}>Complete
                                             </option>
+                                        </select> --}}
+                                        <select name="status" id="input7" class="form-select">
+                                            <option selected="">Select Status..</option>
+                                            <option value="0"
+                                                {{ $editData->status == 0 && $editData->assign_cars->isNotEmpty() ? 'selected' : '' }}>
+                                                On-going</option>
+                                            <option value="1" {{ $editData->status == 1 ? 'selected' : '' }}>Complete
+                                            </option>
                                         </select>
+
                                     </div>
-									
+
                                     <div class="col-md-12" style="margin-top: 20px;">
                                         <button type="submit" class="btn btn-primary">Update</button>
-                                        <a href="{{route('download.invoice',$editData->id)}}" class="btn btn-warning px-3 radius-10"><i class="lni lni-download"></i>Send Invoice</a>
+                                        <a href="{{ route('download.invoice', $editData->id) }}"
+                                            class="btn btn-warning px-3 radius-10"><i class="lni lni-download"></i>Send
+                                            Invoice</a>
                                     </div>
                                 </div>
                             </form>
@@ -226,7 +241,7 @@
                                     <input type="number" required name="car_numbers" class="form-control"
                                         value="{{ $editData->car_numbers }}">
                                 </div> --}}
-								{{-- <input type="hidden" name="available_room" id="available_room"  class="form-control"  > --}}
+                                {{-- <input type="hidden" name="available_room" id="available_room"  class="form-control"  > --}}
                                 {{-- <div class="cold-md-12 mb-2">
 							<label for="">Availability: <span class="text-success availability"></span></label>						
 						</div> --}}
@@ -249,20 +264,25 @@
                     </div>
 
                     <ul class="list-group list-group-flush large-text">
-						<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">
-							Name <span class="badge bg-success rounded-pill px-3 radius-10">{{ $editData['user']['name'] }}</span>
-						</li>
-						<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
-							Email <span class="badge bg-danger rounded-pill px-3 radius-10">{{ $editData['user']['email'] }}</span>
-						</li>
-						<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
-							Phone <span class="badge bg-primary rounded-pill px-3 radius-10">{{ $editData['user']['phone'] }}</span>
-						</li>
-						<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
-							Nation <span class="badge bg-warning text-dark rounded-pill px-3 radius-10">{{ $editData->nationality }}</span>
-						</li>
-					</ul>
-					
+                        <li
+                            class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">
+                            Name <span
+                                class="badge bg-success rounded-pill px-3 radius-10">{{ $editData['user']['name'] }}</span>
+                        </li>
+                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                            Email <span
+                                class="badge bg-danger rounded-pill px-3 radius-10">{{ $editData['user']['email'] }}</span>
+                        </li>
+                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                            Phone <span
+                                class="badge bg-primary rounded-pill px-3 radius-10">{{ $editData['user']['phone'] }}</span>
+                        </li>
+                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                            Nation <span
+                                class="badge bg-warning text-dark rounded-pill px-3 radius-10">{{ $editData->nationality }}</span>
+                        </li>
+                    </ul>
+
                 </div>
                 {{-- //end card radius-10 w-100 --}}
 

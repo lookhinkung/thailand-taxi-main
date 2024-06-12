@@ -48,24 +48,47 @@
                         <tbody>
                             @foreach ($allData as $key => $item)
                                 <tr>
-                                    <td> {{$key+1}} </td>
-                                    <td> <a href="{{ route('edit_booking',$item->id)}}"> {{$item->code}}</a> </td>
-                                    <td>{{$item->created_at}} </td>
-                                    <td> {{$item['user']['name']}}</td>
-                                    <td>{{$item['car']['type']['name']}} </td>
-                                    <td>{{$item->pick_time}} </td>
-                                    <td> <span class="badge bg-primary"> {{$item->check_in}} </span>
-                                    <br> <span class="badge bg-warning text-dark"> {{$item->check_out}} </span></td>
-                                    <td>{{$item->total_night}}  </td>
-                                    <td> {{$item->persion}}</td>
-                                    <td> @if ($item->status == '1')
-                                        <span class="text-success">Active</span>
+                                    <td> {{ $key + 1 }} </td>
+                                    <td> <a href="{{ route('edit_booking', $item->id) }}"> {{ $item->code }}</a> </td>
+                                    <td>{{ $item->created_at }} </td>
+                                    <td> {{ $item['user']['name'] }}</td>
+                                    <td>{{ $item['car']['type']['name'] }} </td>
+                                    <td>{{ $item->pick_time }} </td>
+                                    <td> <span class="badge bg-primary"> {{ $item->check_in }} </span>
+                                        <br> <span class="badge bg-warning text-dark"> {{ $item->check_out }} </span>
+                                    </td>
+                                    <td>{{ $item->total_night }} </td>
+                                    <td> {{ $item->persion }}</td>
+                                    {{-- <td> @if ($item->status == '1')
+                                        <span class="text-success">Complete</span>
                                         @else
                                         <span class="text-danger">Pending</span>
                                          @endif 
-                                    </td>
+                                    </td> --}}
+            
+                                        <td>
+                                            @if ($item->status == '1')
+                                                <span class="text-success">Complete</span>
+                                            @elseif ($item->status == '0' && $item->assign_cars->isNotEmpty())
+                                                <span class="text-warning">On-going</span>
+                                            @else
+                                                <span class="text-danger">Pending</span>
+                                            @endif
+                                        </td>
+                                
+
+
+
+
+
+
+
+
+
+
                                     <td>
-                                        <a href="{{ route('delete.booking',$item->id) }}" class="btn btn-danger px-3 radius-30" id="delete"> Delete</a>
+                                        <a href="{{ route('delete.booking', $item->id) }}"
+                                            class="btn btn-danger px-3 radius-30" id="delete"> Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

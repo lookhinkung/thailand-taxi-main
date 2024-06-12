@@ -145,7 +145,7 @@ class CarListController extends Controller
             'message' => 'Booking Added Successfully',
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification);
+        return redirect('/booking/list')->with($notification);
     }
 
 
