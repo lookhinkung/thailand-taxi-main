@@ -23,7 +23,7 @@
 
         <li>
             <a href="{{ route('all.team') }}" class="">
-                <div class="parent-icon"><i class="bx bx-category"></i>
+                <div class="parent-icon"><i class='bx bxl-microsoft-teams'></i>
                 </div>
                 <div class="menu-title">Manage Teams</div>
             </a>
@@ -37,7 +37,7 @@
         </li>
         <li>
             <a href="{{ route('book.area') }}" class="">
-                <div class="parent-icon"><i class="bx bx-category"></i>
+                <div class="parent-icon"><i class='bx bx-book-content'></i>
                 </div>
                 <div class="menu-title">Manage Book Area</div>
             </a>
@@ -49,7 +49,7 @@
         </li>
         <li>
             <a href="{{ route('car.type.list') }}" class="">
-                <div class="parent-icon"><i class="bx bx-category"></i>
+                <div class="parent-icon"><i class='bx bx-car'></i>
                 </div>
                 <div class="menu-title">Manage Car Type</div>
             </a>
@@ -76,7 +76,7 @@
         
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-cart'></i>
+                <div class="parent-icon"><i class='bx bx-book-bookmark'></i>
                 </div>
                 <div class="menu-title">Booking</div>
             </a>
@@ -85,38 +85,46 @@
                     </i>Booking list</a>
                 </li>
                 <li> <a href="{{ route('add.car.list') }}"><i class='bx bx-radio-circle'></i>
-                        Add Car List</a>
+                        Add Booking List</a>
                 </li>
                 
             </ul>
         </li>
         <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+            <a class="" href="{{ route('view.car.list') }}">
+                <div class="parent-icon"><i class='bx bxs-car-garage'></i>
                 </div>
                 <div class="menu-title">Manage CarList</div>
             </a>
-            <ul>
-                <li> <a href="{{ route('view.car.list') }}">
-                    <i class='bx bx-radio-circle'></i>Car List</a>
-                </li>
-                
-            </ul>
+            
         </li>
 
         <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+            <a class="" href="{{ route('booking.report') }}">
+                <div class="parent-icon"><i class='bx bxs-report' ></i>
                 </div>
-                <div class="menu-title">Setting</div>
+                <div class="menu-title">Booking Report</div>
             </a>
-            <ul>
+           
+        </li>
+
+        <li>
+            <a class="" href="{{ route('smtp.setting') }}">
+                <div class="parent-icon"><i class='bx bx-voicemail'></i>
+                </div>
+                <div class="menu-title">SMTP Setting</div>
+            </a>
+            {{-- <ul>
                 <li> <a href="{{ route('smtp.setting') }}">
                     <i class='bx bx-radio-circle'></i>SMTP Setting</a>
                 </li>
                 
-            </ul>
+            </ul> --}}
         </li>
+
+
+        <li class="menu-label">HOME PAGE CONTENT</li>
+
 
         <li>
             <a class="has-arrow" href="javascript:;">
@@ -137,7 +145,7 @@
 
         <li>
             <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                <div class="parent-icon"><i class='bx bxl-blogger' ></i>
                 </div>
                 <div class="menu-title">Blog</div>
             </a>
@@ -155,7 +163,7 @@
 
         <li>
             <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                <div class="parent-icon"><i class='bx bx-message-dots' ></i>
                 </div>
                 <div class="menu-title">Manage Comment</div>
             </a>
@@ -169,9 +177,11 @@
                 
             </ul>
         </li>
+
+        
         
        
-        <li class="menu-label">Others</li>
+        {{-- <li class="menu-label">Others</li>
         
         <li>
             <a href="#" target="_blank">
@@ -179,7 +189,10 @@
                 </div>
                 <div class="menu-title">Support</div>
             </a>
-        </li>
+        </li> --}}
+
+
+        
     </ul>
     <!--end navigation-->
 </div>
