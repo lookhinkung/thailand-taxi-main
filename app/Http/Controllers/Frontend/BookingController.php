@@ -250,11 +250,26 @@ class BookingController extends Controller
             }
         }
 
+        // Check if the status is 2 and send an email
+        if ($request->status == 2) {
+            // Prepare the email data
+            $data = [
+                'check_in' => $booking->check_in,
+                'check_out' => $booking->check_out, // Assuming check_out exists in the booking model
+                'name' => $booking->name,
+                'email' => $booking->email,
+                'phone' => $booking->phone,
+            ];
+
+            // Send the email
+            Mail::to($booking->email)->send(new BookDecline($data));
+        }
+
         // Prepare a success notification
-        $notification = array(
+        $notification = [
             'message' => 'Information Updated Successfully',
             'alert-type' => 'success'
-        );
+        ];
 
         // Redirect back with the notification
         return redirect('booking/list')->with($notification);
@@ -418,24 +433,36 @@ class BookingController extends Controller
 
     }// End Method
 
+    // public function DeleteBooking($id)
+    // {
+
+    //     /// Start Sent Email 
+
+    //     $sendmail = Booking::find($id);
+
+    //     $data = [
+    //         'check_in' => $sendmail->check_in,
+    //         'check_out' => $sendmail->check_out,
+    //         'name' => $sendmail->name,
+    //         'email' => $sendmail->email,
+    //         'phone' => $sendmail->phone,
+    //     ];
+
+    //     Mail::to($sendmail->email)->send(new BookDecline($data));
+
+    //     /// End Sent Email 
+    //     Booking::find($id)->delete();
+
+    //     $notification = array(
+    //         'message' => 'Booking Deleted Successfully',
+    //         'alert-type' => 'success'
+    //     );
+    //     return redirect()->back()->with($notification);
+    // }//End method
+
     public function DeleteBooking($id)
     {
 
-        /// Start Sent Email 
-
-        $sendmail = Booking::find($id);
-
-        $data = [
-            'check_in' => $sendmail->check_in,
-            'check_out' => $sendmail->check_out,
-            'name' => $sendmail->name,
-            'email' => $sendmail->email,
-            'phone' => $sendmail->phone,
-        ];
-
-        Mail::to($sendmail->email)->send(new BookDecline($data));
-
-        /// End Sent Email 
         Booking::find($id)->delete();
 
         $notification = array(
@@ -444,9 +471,6 @@ class BookingController extends Controller
         );
         return redirect()->back()->with($notification);
     }//End method
-
-
-
 
 }
 

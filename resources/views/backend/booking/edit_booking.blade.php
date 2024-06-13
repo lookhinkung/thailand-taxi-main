@@ -80,12 +80,15 @@
                                 <p class="mb-0 text-secondary">Booking Status </p>
                                 <h4 class="my-1 text-warning">
                                     @if ($editData->status == '1')
-                                        <span class="text-success">Active</span>
+                                        <span class="text-info">Active</span>
+                                    @elseif ($editData->status == '2')
+                                        <span class="text-danger">Declined</span>
                                     @elseif ($editData->status == '0' && $editData->assign_cars->isNotEmpty())
-                                        <span class="text-warning">On-going</span>
+                                        <span class="text-success">On-going</span>
                                     @else
-                                        <span class="text-danger">Pending</span>
+                                        <span class="text-warning">Pending</span>
                                     @endif
+
                                 </h4>
 
 
@@ -184,16 +187,27 @@
                                                 On-going</option>
                                             <option value="1" {{ $editData->status == 1 ? 'selected' : '' }}>Complete
                                             </option>
+                                            <option value="2" {{ $editData->status == 2 ? 'selected' : '' }}>Decline
+                                            </option>
+
                                         </select>
 
                                     </div>
 
+
                                     <div class="col-md-12" style="margin-top: 20px;">
+
                                         <button type="submit" class="btn btn-primary">Update</button>
+                                        {{-- <a href="{{ route('download.invoice', $editData->id) }}"
+                                            class="btn btn-danger px-3 radius-10">
+                                            <i class="lni lni-download"></i>Decline
+                                        </a> --}}
                                         <a href="{{ route('download.invoice', $editData->id) }}"
-                                            class="btn btn-warning px-3 radius-10"><i class="lni lni-download"></i>Send
-                                            Invoice</a>
+                                            class="btn btn-warning px-3 radius-10">
+                                            <i class="lni lni-download"></i>Confirm
+                                        </a>
                                     </div>
+
                                 </div>
                             </form>
 

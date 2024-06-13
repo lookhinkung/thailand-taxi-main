@@ -55,8 +55,15 @@
                                                     </thead>
                                                     <tbody>
                                                         @foreach ($allData as $item)
-                                                            <td><a href="{{ route('user.invoice', $item->id) }}">
-                                                                    {{ $item->code }}</a></td>
+                                                            <td>
+                                                                @if ($item->status == 2)
+                                                                    {{ $item->code }}
+                                                                @else
+                                                                    <a
+                                                                        href="{{ route('user.invoice', $item->id) }}">{{ $item->code }}</a>
+                                                                @endif
+                                                            </td>
+
                                                             <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                                             <td>{{ $item['user']['name'] }}</td>
                                                             <td>{{ $item['car']['type']['name'] }}</td>
@@ -66,13 +73,17 @@
                                                             </td>
                                                             <td>{{ $item->persion }}</td>
                                                             <td>
+
                                                                 @if ($item->status == 1)
-                                                                    <span class="badge bg-success text-dark">Complete</span>
+                                                                    <span class="badge bg-info text-dark">Complete</span>
+                                                                @elseif ($item->status == 2)
+                                                                    <span class="badge bg-danger text-dark">Declined</span>
                                                                 @elseif ($item->status == 0 && $item->assign_cars->isNotEmpty())
-                                                                    <span class="badge bg-info text-dark">On-going</span>
+                                                                    <span class="badge bg-success text-dark">On-going</span>
                                                                 @else
                                                                     <span class="badge bg-warning text-dark">Pending</span>
                                                                 @endif
+
                                                             </td>
 
                                                             </tr>

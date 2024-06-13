@@ -1,5 +1,11 @@
 @extends('admin.admin_dashboard')
 @section('admin')
+    <style>
+        .large-text {
+            font-size: 0.85rem;
+            /* Adjust the size as needed */
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="{{ asset('backend/assets/js/code.js') }}"></script>
     <div class="page-content">
@@ -59,23 +65,21 @@
                                     </td>
                                     <td>{{ $item->total_night }} </td>
                                     <td> {{ $item->persion }}</td>
-                                    {{-- <td> @if ($item->status == '1')
-                                        <span class="text-success">Complete</span>
+
+
+                                    <td>
+                                        @if ($item->status == '1')
+                                            <span class="badge bg-info text-dark large-text">Complete</span>
+                                        @elseif ($item->status == '2')
+                                            <span class="badge bg-danger text-dark large-text">Declined</span>
+                                        @elseif ($item->status == '0' && $item->assign_cars->isNotEmpty())
+                                            <span class="badge bg-success text-dark large-text">On-going</span>
                                         @else
-                                        <span class="text-danger">Pending</span>
-                                         @endif 
-                                    </td> --}}
-            
-                                        <td>
-                                            @if ($item->status == '1')
-                                                <span class="text-success">Complete</span>
-                                            @elseif ($item->status == '0' && $item->assign_cars->isNotEmpty())
-                                                <span class="text-warning">On-going</span>
-                                            @else
-                                                <span class="text-danger">Pending</span>
-                                            @endif
-                                        </td>
-                                
+                                            <span class="badge bg-warning text-dark large-text">Pending</span>
+                                        @endif
+                                    </td>
+
+
 
 
 
