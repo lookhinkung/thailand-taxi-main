@@ -98,6 +98,13 @@
             </a>
             
         </li>
+        <li>
+            <a class="" href="{{ route('contact.message') }}">
+                <div class="parent-icon"><i class='bx bx-message-dots' ></i>
+                </div>
+                <div class="menu-title">Contact Message</div>
+            </a>
+        </li>
 
         <li>
             <a class="" href="{{ route('booking.report') }}">
@@ -109,14 +116,20 @@
         </li>
 
         <li>
-            <a class="has-arrow" href="{{ route('smtp.setting') }}">
+            <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class='bx bx-voicemail'></i>
                 </div>
-                <div class="menu-title">SMTP Setting</div>
+                <div class="menu-title">Setting</div>
             </a>
             <ul>
                 <li> <a href="{{ route('site.setting') }}">
                     <i class='bx bx-radio-circle'></i>Site Setting</a>
+                </li>
+                
+            </ul>
+            <ul>
+                <li> <a href="{{ route('smtp.setting') }}">
+                    <i class='bx bx-radio-circle'></i>SMTP Setting</a>
                 </li>
                 
             </ul>

@@ -272,8 +272,13 @@ Route::controller(BlogController::class)->group(function () {
 Route::controller(CommentController::class)->group(function () {
 
     Route::post('store/comment/','StoreComment')->name('store.comment'); 
-    
-  
+
+    // Contact All Route
+    Route::get('/contact','ContactUs')->name('contact.us'); 
+    Route::post('store/contact','StoreContact')->name('store.contact'); 
+
+    // Contact Message Admin
+    Route::get('/contact/message','AdminContactMessage')->name('contact.message');
 });
 
 
