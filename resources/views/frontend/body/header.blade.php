@@ -21,7 +21,7 @@
                         @auth
                             <li>
                                 <i class='bx bxs-user-pin'></i>
-                                <a href="{{ route('dashboard') }}">Dashboard</a>
+                                <a href="{{ route('user.booking') }}">Dashboard</a>
                             </li>
                             <li>
                                 <i class='bx bxs-user-rectangle'></i>

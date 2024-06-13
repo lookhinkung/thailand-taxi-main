@@ -14,12 +14,12 @@
                             </a>
                         </div>
                         <p>
-                            Aenean finibus convallis nisl sit amet hendrerit. Etiam blandit velit non lorem mattis, non ultrices eros bibendum .
+                            
                         </p>
                         <ul class="footer-list-contact">
                             <li>
                                 <i class='bx bx-home-alt'></i>
-                                <a href="#">{{$setting->address}}</a>
+                                <a>{{$setting->address}}</a>
                             </li>
                             <li>
                                 <i class='bx bx-phone-call'></i>
