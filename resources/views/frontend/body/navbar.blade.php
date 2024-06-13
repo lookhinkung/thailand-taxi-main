@@ -1,9 +1,12 @@
+@php
+    $setting = App\Models\SiteSetting::find(1);
+@endphp
 <div class="navbar-area">
     <!-- Menu For Mobile Device -->
     <div class="mobile-nav">
         <a href="index.html" class="logo">
-            <img src="{{ asset('frontend/assets/img/logos/logo-1.png') }}" class="logo-one" alt="Logo">
-            <img src="{{ asset('frontend/assets/img/logos/footer-logo1.png') }}" class="logo-two" alt="Logo">
+            <img src="{{$setting->logo}}" class="logo-one" alt="Logo">
+            <img src="{{$setting->logo}}" class="logo-two" alt="Logo">
         </a>
     </div>
 
@@ -12,8 +15,8 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light ">
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('frontend/assets/img/logos/logo-1.png') }}" class="logo-one" alt="Logo">
-                    <img src="{{ asset('frontend/assets/img/logos/footer-logo1.png') }}" class="logo-two"
+                    <img src="{{$setting->logo}}" class="logo-one" alt="Logo">
+                    <img src="{{$setting->logo}}" class="logo-two"
                         alt="Logo">
                 </a>
 
@@ -28,7 +31,7 @@
                         @php
                             $car = App\Models\Car::latest()->get();
                         @endphp
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link">
                                 About
                                 <i class='bx bx-chevron-down'></i>
@@ -39,19 +42,19 @@
                                         About Us
                                     </a>
                                 </li>
-                                {{-- @foreach ($car as $item) --}}
+                                
                                 <li class="nav-item">
                                     <a href="{{ route('fcar.all') }}" class="nav-link">
-                                        {{-- {{$item['type']['name']}} --}}
+                                        
                                         Fleet
                                     </a>
                                 </li>
-                                {{-- @endforeach --}}
+                                
                             </ul>
-                        </li>
+                        </li> --}}
 
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 Services
                                 <i class='bx bx-chevron-down'></i>
@@ -73,29 +76,35 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <i class='bx bxs-plane-alt'></i>
                             <a href="#" class="">
                                 Airport transfer
                             </a>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a href="{{ route('about.us') }}" class="nav-link">
+                                About Us
+                            </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('fcar.all') }}" class="nav-link">
+                                Fleet
+                            </a>
+                        </li>
+
                         <li class="nav-item">
                             <a href="{{ route('blog.list') }}" class="nav-link">
-                                Blog
+                                Review
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Reviews
-                            </a>
-                        </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 Booking
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="contact.html" class="nav-link">
                                 Contact
@@ -108,9 +117,9 @@
                         </li>
                     </ul>
 
-                    <div class="nav-btn">
+                    {{-- <div class="nav-btn">
                         <a href="#" class="default-btn btn-bg-one border-radius-5">Book Now</a>
-                    </div>
+                    </div> --}}
                 </div>
             </nav>
         </div>

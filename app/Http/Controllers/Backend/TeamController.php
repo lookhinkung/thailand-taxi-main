@@ -36,6 +36,12 @@ class TeamController extends Controller
         Image::make($image)->resize(550, 670)->save('upload/team/' . $name_gen);
         $save_url = 'upload/team/' . $name_gen;
 
+        // Ensure the facebook URL has a protocol
+        $facebook_url = $request->facebook;
+        if (!preg_match('/^(http:\/\/|https:\/\/)/', $facebook_url)) {
+            $facebook_url = 'http://' . $facebook_url;
+        }
+
         Team::insert([
 
             'name' => $request->name,
@@ -134,18 +140,19 @@ class TeamController extends Controller
 
     }//End method
 
-    public function BookAreaUpdate(Request $request){
+    public function BookAreaUpdate(Request $request)
+    {
 
-        
+
 
         $book_id = $request->id;
 
-        if($request->file('image')){
+        if ($request->file('image')) {
 
             $image = $request->file('image');
-            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(1000,1000)->save('upload/bookarea/'.$name_gen);
-            $save_url = 'upload/bookarea/'.$name_gen;
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(1000, 1000)->save('upload/bookarea/' . $name_gen);
+            $save_url = 'upload/bookarea/' . $name_gen;
 
             BookArea::findOrFail($book_id)->update([
 
@@ -153,7 +160,7 @@ class TeamController extends Controller
                 'main_title' => $request->main_title,
                 'short_desc' => $request->short_desc,
                 // 'link_url' => $request->link_url,
-                'image' => $save_url, 
+                'image' => $save_url,
             ]);
 
             $notification = array(
@@ -183,14 +190,14 @@ class TeamController extends Controller
 
         } // End Eles 
 
-        
+
 
 
     } // End Method 
 
-    
-        
-        
+
+
+
 
 
 

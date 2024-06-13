@@ -42,7 +42,13 @@
                         <h6 class="mb-0">Position</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                        <input type="text" name='position' class="form-control" value="{{$team->position }}"/>
+                        {{-- <input type="text" name='position' class="form-control" value="{{$team->position }}"/> --}}
+                        <select name="position" class="form-select" value="{{$team->position }}">
+                            <option selected="">Choose...</option>
+                            <option value="Ceo">Ceo</option>
+                            <option value="Driver">Driver</option>
+                            <option value="Coordinator">Coordinator</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row mb-3">

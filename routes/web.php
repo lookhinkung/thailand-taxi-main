@@ -166,6 +166,15 @@ Route::controller(ReportController::class)->group(function () {
   
 });
 
+// Site Setting All Route
+Route::controller(SettingController::class)->group(function () {
+
+    Route::get('site/setting','SiteSetting')->name('site.setting'); 
+    Route::post('site/update','SiteUpdate')->name('site.update'); 
+
+  
+});
+
 
 
 });//End Admin Group Middleware

@@ -60,9 +60,9 @@
                     <div class="form-group col-sm-9 text-secondary">
                         <select name="position" class="form-select" id="inputGroupSelect02" fdprocessedid="v9vmnj">
                             <option selected="">Choose...</option>
-                            <option value="1">Ceo</option>
-                            <option value="2">Driver</option>
-                            <option value="3">Coordinator</option>
+                            <option value="Ceo">Ceo</option>
+                            <option value="Driver">Driver</option>
+                            <option value="Coordinator">Coordinator</option>
                         </select>
                         
                     </div>
