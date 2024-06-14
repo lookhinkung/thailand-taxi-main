@@ -26,6 +26,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use App\Notifications\BookingComplete;
 use Illuminate\Support\Facades\Notification;
+use App\Mail\BookingNotification;
 
 class BookingController extends Controller
 {
@@ -90,10 +91,8 @@ class BookingController extends Controller
 
     public function CheckoutStore(Request $request)
     {
-        $user = User::where('role','admin')->get();
-        $admins = User::where('name', 'Admin')->get();
-
-
+        $user = User::where('role', 'admin')->get();
+        
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
@@ -176,9 +175,21 @@ class BookingController extends Controller
             'message' => 'Booking Added Successfully',
             'alert-type' => 'success'
         );
+        $emailData = [
+            'check_in' => $data->check_in,
+            'check_out' => $data->check_out,
+            'name' => $data->name,
+            'email' => $data->email,
+            'phone' => $data->phone,
+        ];
+    
+        Mail::to($user)->send(new BookingNotification($emailData));
+    
 
-        Notification::send($user,new BookingComplete($request->name));
-        Mail::to($admins->email)->send($user,new BookingComplete($request->name));
+        Notification::send($user, new BookingComplete($request->name));
+        
+
+       
 
         return redirect('/')->with($notification);
     }// End Method
@@ -204,7 +215,7 @@ class BookingController extends Controller
     }// End Method
 
 
-  
+
 
     public function UpdateBookingStatus(Request $request, $id)
     {
@@ -254,7 +265,7 @@ class BookingController extends Controller
     }
 
 
-    
+
     public function UpdateBooking(Request $request, $id)
     {
 
@@ -411,32 +422,6 @@ class BookingController extends Controller
 
     }// End Method
 
-    // public function DeleteBooking($id)
-    // {
-
-    //     /// Start Sent Email 
-
-    //     $sendmail = Booking::find($id);
-
-    //     $data = [
-    //         'check_in' => $sendmail->check_in,
-    //         'check_out' => $sendmail->check_out,
-    //         'name' => $sendmail->name,
-    //         'email' => $sendmail->email,
-    //         'phone' => $sendmail->phone,
-    //     ];
-
-    //     Mail::to($sendmail->email)->send(new BookDecline($data));
-
-    //     /// End Sent Email 
-    //     Booking::find($id)->delete();
-
-    //     $notification = array(
-    //         'message' => 'Booking Deleted Successfully',
-    //         'alert-type' => 'success'
-    //     );
-    //     return redirect()->back()->with($notification);
-    // }//End method
 
     public function DeleteBooking($id)
     {
@@ -450,18 +435,19 @@ class BookingController extends Controller
         return redirect()->back()->with($notification);
     }//End method
 
-    public function MarkAsRead(Request $request , $notificationId){
+    public function MarkAsRead(Request $request, $notificationId)
+    {
 
         $user = Auth::user();
-        $notification = $user->notifications()->where('id',$notificationId)->first();
+        $notification = $user->notifications()->where('id', $notificationId)->first();
 
         if ($notification) {
             $notification->markAsRead();
         }
 
-  return response()->json(['count' => $user->unreadNotifications()->count()]);
+        return response()->json(['count' => $user->unreadNotifications()->count()]);
 
-     }// End Method 
+    }// End Method 
 
 
 }

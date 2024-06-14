@@ -1,4 +1,5 @@
 @php
+    use Illuminate\Support\Str;
     $blog = App\Models\BlogPost::latest()->limit(3)->get();
 @endphp
 <div class="blog-area pt-100 pb-70">
@@ -25,7 +26,7 @@
                         <h3>
                             <a href="{{url('blog/details/'.$item->post_slug)}}">{{$item->post_title}}</a>
                         </h3>
-                        <p>{{$item->short_desc}}</p>
+                        <p>{{ Str::limit($item->short_desc, 300) }}</p>
                         <a href="{{url('blog/details/'.$item->post_slug)}}" class="read-btn">
                             Read More
                         </a>
@@ -33,9 +34,7 @@
                 </div>
             </div>
             @endforeach
-            
 
-            
         </div>
     </div>
-</div>
+</div> 

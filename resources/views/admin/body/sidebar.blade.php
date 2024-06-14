@@ -194,15 +194,24 @@
         
         
        
-        {{-- <li class="menu-label">Others</li>
+        <li class="menu-label">Role & Permission</li>
         
         <li>
-            <a href="#" target="_blank">
-                <div class="parent-icon"><i class="bx bx-support"></i>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class='bx bx-message-dots' ></i>
                 </div>
-                <div class="menu-title">Support</div>
+                <div class="menu-title">Role & Permission</div>
             </a>
-        </li> --}}
+            <ul>
+                <li> <a href="{{ route('all.permission') }}">
+                    <i class='bx bx-radio-circle'></i>All Permission</a>
+                </li>
+                <li> <a href="{{ route('all.blog.post') }}">
+                    <i class='bx bx-radio-circle'></i>All Blog Post</a>
+                </li>
+                
+            </ul>
+        </li>
 
 
 

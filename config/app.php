@@ -123,17 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-        // 'providers' => [
-        //     // Other Service Providers
-        
-        //     Intervention\Image\ImageServiceProvider::class,
-        // ],
-
-        // 'aliases' => [
-        //     // Other Aliases
-        
-        //     'Image' => Intervention\Image\Facades\Image::class,
-        // ],
+       
 
 
 

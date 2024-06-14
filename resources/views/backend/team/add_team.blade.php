@@ -35,28 +35,12 @@
                         <input type="text" name="name" class="form-control" />
                     </div>
                 </div>
-                {{-- <div class="row mb-3">
-                    <div class="col-sm-3">
-                        <h6 class="mb-0">Position</h6>
-                    </div>
-                    <div class="form-group col-sm-9 text-secondary">
-                        <input type="text" name='position' class="form-control" />
-                    </div>
-                </div> --}}
+                
                 <div class="row mb-3">
                     <div class="col-sm-3">
                         <h6 class="mb-0">Position</h6>
                     </div>
-                    {{-- <div class="form-group col-sm-9 text-secondary">
-                        <select name="position" class="form-control custom-dropdown">
-                            <option value="" disabled selected>Select your position</option>
-                            <option value="manager">Manager</option>
-                            <option value="developer">Developer</option>
-                            <option value="designer">Designer</option>
-                            <option value="analyst">Analyst</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div> --}}
+                    
                     <div class="form-group col-sm-9 text-secondary">
                         <select name="position" class="form-select" id="inputGroupSelect02" fdprocessedid="v9vmnj">
                             <option selected="">Choose...</option>

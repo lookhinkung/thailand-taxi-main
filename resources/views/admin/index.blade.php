@@ -30,7 +30,7 @@
                             <div>
                                 <p class="mb-0 text-secondary">Total Booking</p>
                                 <h4 class="my-1 text-info">{{ count($bookings) }} </h4>
-                                <p class="mb-0 font-13">Today Booking: {{ $todayBookingsCount }}</p>
+                                <p class="mb-0 font-13">Today Booking: {{ $todayBookingsCount }} </p>
                             </div>
                             <div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i
                                     class='bx bxs-cart'></i>
@@ -45,9 +45,9 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
-                                <p class="mb-0 text-secondary">Pending Booking</p>
+                                <p class="mb-0 text-secondary">Pending </p>
                                 <h4 class="my-1 text-danger">{{ count($pending) }}</h4>
-                                <p class="mb-0 font-13">+5.4% from last week</p>
+                                <p class="mb-0 font-13">Bookings.</p>
                             </div>
                             <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i
                                     class='bx bxs-wallet'></i>
@@ -61,9 +61,9 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
-                                <p class="mb-0 text-secondary">On-going Booking</p>
+                                <p class="mb-0 text-secondary">On-going </p>
                                 <h4 class="my-1 text-warning">{{ count($ongoing) }}</h4>
-                                <p class="mb-0 font-13">+8.4% from last week</p>
+                                <p class="mb-0 font-13">Bookings.</p>
                             </div>
                             <div class="widgets-icons-2 rounded-circle bg-gradient-orange text-white ms-auto"><i
                                     class='bx bxs-group'></i>
@@ -77,9 +77,9 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
-                                <p class="mb-0 text-secondary">Complete Booking</p>
+                                <p class="mb-0 text-secondary">Complete </p>
                                 <h4 class="my-1 text-success">{{ count($complete) }}</h4>
-                                <p class="mb-0 font-13">-4.5% from last week</p>
+                                <p class="mb-0 font-13">Bookings.</p>
                             </div>
                             <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i
                                     class='bx bxs-bar-chart-alt-2'></i>
