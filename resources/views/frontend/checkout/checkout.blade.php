@@ -38,36 +38,20 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Nationality <span class="required">*</span></label>
-                                        <input type="text" name="nationality" value="{{ \Auth::user()->nationality }}"
-                                            class="form-control">
+                                        <input type="text" name="nationality" value="{{ \Auth::user()->nationality }}" class="form-control">
                                     </div>
                                 </div>
-
-                                {{-- <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Title<span class="required">*</span></label>
-                                        <input type="text" class="form-control" name="title">
-                                        <select class="form-control" name="title">
-                                            <option value="" disabled selected>Select</option>
-                                            <option value="">Mr.</option>
-                                            <option value="">Mrs.</option>
-                                            <option value="">Ms.</option>
-                                        </select>
-                                        @if ($errors->has('pick_from'))
-                                            <div class="text-danger">{{ $errors->first('pick_from') }}</div>
-                                        @endif
-                                    </div>
-                                </div> --}}
-
+                            </div>
+                            
+                            <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Name <span class="required">*</span></label>
-                                        <input type="text" name="name" value="{{ \Auth::user()->name }}"
-                                            class="form-control">
+                                        <input type="text" name="name" value="{{ \Auth::user()->name }}" class="form-control">
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 col-md-4">
+                                <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Email<span class="required">*</span></label>
                                         <input type="email" name="email" value="{{ \Auth::user()->email }}"
@@ -75,7 +59,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 col-md-4">
+                                <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Phone</label>
                                         <input type="text" name="phone" value="{{ \Auth::user()->phone }}"
@@ -83,39 +67,40 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 col-md-4">
-                                    <div class="form-group">
-                                        <label>Pick up Time</label>
-                                        <div class="input-group">
-                                            <input autocomplete="off" id="datetimepicker5" type="time" required name="pick_time"
-                                            class="form-control">
-                                            <span class="input-group-addon"></span>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="form-group">
+                                            <label>Pick up Time</label>
+                                            <div class="input-group">
+                                                <input autocomplete="off" id="datetimepicker5" type="time" required name="pick_time" class="form-control">
+                                                <span class="input-group-addon"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>From <span class="required">*</span></label>
-                                        <input type="text" name="pick_from" class="form-control">
-                                        @if ($errors->has('pick_from'))
-                                            <div class="text-danger">{{ $errors->first('pick_from') }}</div>
-                                        @endif
+                                
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-4">
+                                        <div class="form-group">
+                                            <label>From <span class="required">*</span></label>
+                                            <input type="text" name="pick_from" class="form-control">
+                                            @if ($errors->has('pick_from'))
+                                                <div class="text-danger">{{ $errors->first('pick_from') }}</div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-lg-6 col-md-4">
+                                        <div class="form-group">
+                                            <label>Drop off <span class="required">*</span></label>
+                                            <input type="text" name="drop_to" class="form-control">
+                                            @if ($errors->has('drop_to'))
+                                                <div class="text-danger">{{ $errors->first('drop_to') }}</div>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Drop off<span class="required">*</span></label>
-                                        <input type="text" name="drop_to" class="form-control">
-                                        @if ($errors->has('drop_to'))
-                                            <div class="text-danger">{{ $errors->first('drop_to') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
+                                
 
                                 {{-- <div class="col-lg-6 col-md-6">
         <div class="form-group">

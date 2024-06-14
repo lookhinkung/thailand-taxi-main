@@ -22,8 +22,10 @@ use Illuminate\Support\Facades\Auth;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use App\Models\BookingCarList;
 use Illuminate\Support\Facades\Mail;
-
+use App\Models\User;
 use Illuminate\Support\Facades\Log;
+use App\Notifications\BookingComplete;
+use Illuminate\Support\Facades\Notification;
 
 class BookingController extends Controller
 {
@@ -88,6 +90,10 @@ class BookingController extends Controller
 
     public function CheckoutStore(Request $request)
     {
+        $user = User::where('role','admin')->get();
+        $admins = User::where('name', 'Admin')->get();
+
+
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
@@ -170,8 +176,12 @@ class BookingController extends Controller
             'message' => 'Booking Added Successfully',
             'alert-type' => 'success'
         );
+
+        Notification::send($user,new BookingComplete($request->name));
+        Mail::to($admins->email)->send($user,new BookingComplete($request->name));
+
         return redirect('/')->with($notification);
-    }
+    }// End Method
 
 
     public function BookingList()
@@ -194,39 +204,7 @@ class BookingController extends Controller
     }// End Method
 
 
-    // public function UpdateBookingStatus(Request $request, $id)
-    // {
-    //     // Find the booking by its ID
-    //     $booking = Booking::find($id);
-
-    //     // Update the status with the value from the request
-    //     $booking->status = $request->status;
-
-    //     // Save the updated booking
-    //     $booking->save();
-
-    //     // Check if the status is 1
-    //     if ($request->status == 1) {
-    //         // Find the associated BookingCarList by the same ID
-    //         $assign_car = BookingCarList::find($id);
-
-    //         // If the BookingCarList entry exists, delete it
-    //         if ($assign_car) {
-    //             $assign_car->delete();
-    //         }
-    //     }
-
-    //     // Prepare a success notification
-    //     $notification = array(
-    //         'message' => 'Information Updated Successfully',
-    //         'alert-type' => 'success'
-    //     );
-
-    //     // Redirect back with the notification
-    //     return redirect('booking/list')->with($notification);
-    // } // End Method
-
-
+  
 
     public function UpdateBookingStatus(Request $request, $id)
     {
@@ -471,6 +449,20 @@ class BookingController extends Controller
         );
         return redirect()->back()->with($notification);
     }//End method
+
+    public function MarkAsRead(Request $request , $notificationId){
+
+        $user = Auth::user();
+        $notification = $user->notifications()->where('id',$notificationId)->first();
+
+        if ($notification) {
+            $notification->markAsRead();
+        }
+
+  return response()->json(['count' => $user->unreadNotifications()->count()]);
+
+     }// End Method 
+
 
 }
 

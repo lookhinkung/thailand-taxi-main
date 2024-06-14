@@ -283,8 +283,13 @@ Route::controller(CommentController::class)->group(function () {
 
 
 
-
-
 Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google-auth');
 Route::get('auth/google/call-back',[GoogleAuthController::class,'callbackGoogle']);
 
+
+
+// Notification All route
+Route::controller(BookingController::class)->group(function () {
+
+    Route::post('/mark-notification-as-read/{notification}', 'MarkAsRead');
+});
