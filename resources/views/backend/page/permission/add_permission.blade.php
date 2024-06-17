@@ -45,11 +45,11 @@
             <option selected="">Select Group </option>
             <option value="Team">Team </option>
             <option value="Book Area">Book Area</option>
-            <option value="Manage Room">Manage Room</option>
+            <option value="Manage Car">Manage Car</option>
             <option value="Booking">Booking</option>
-            <option value="RoomList">RoomList</option>
+            <option value="CarList">CarList</option>
             <option value="Setting">Setting</option>
-            <option value="Tesimonial">Tesimonial</option>
+            <option value="Testimonial">Testimonial</option>
             <option value="Blog">Blog</option>
             <option value="Manage Comment">Manage Comment</option>
             <option value="Booking Report">Booking Report </option>

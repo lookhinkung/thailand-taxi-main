@@ -141,7 +141,7 @@ class BookingController extends Controller
         $data->check_in = date('Y-m-d', strtotime($book_data['check_in']));
         $data->check_out = date('Y-m-d', strtotime($book_data['check_out']));
         $data->persion = $book_data['persion'];
-        $data->number_of_cars = $book_data['number_of_cars'];
+       
         $data->total_night = $nights;
         $data->name = $request->name;
         $data->email = $request->email;
@@ -175,6 +175,7 @@ class BookingController extends Controller
             'message' => 'Booking Added Successfully',
             'alert-type' => 'success'
         );
+        
         $emailData = [
             'check_in' => $data->check_in,
             'check_out' => $data->check_out,

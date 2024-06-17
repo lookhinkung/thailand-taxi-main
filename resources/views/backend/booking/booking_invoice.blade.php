@@ -70,6 +70,7 @@
     <thead class="table-light">
         <tr>
             <th style="text-align: center;">Car Type</th>
+            <th style="text-align: center;">Passenger Name</th>
             <th style="text-align: center;">Check In / Out Date</th>
             <th style="text-align: center;">Pick up Time</th>
             <th style="text-align: center;">Total Passenger</th>
@@ -79,6 +80,7 @@
     <tbody>
         <tr>
             <td style="text-align: center;">{{ $editData->car->type->name }}</td>
+            <td style="text-align: center;">{{ $editData->name }}</td>
             <td style="text-align: center;">
                 <span class="badge bg-primary">{{ $editData->check_in }}</span>
                 <br>

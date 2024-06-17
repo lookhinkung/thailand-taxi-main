@@ -50,17 +50,17 @@
                                                 {{ $permission->group_name == 'Team' ? 'selected' : '' }}Team </option>
                                             <option value="Book Area">
                                                 {{ $permission->group_name == 'Book Area' ? 'selected' : '' }}Book Area</option>
-                                            <option value="Manage Room">
-                                                {{ $permission->group_name == 'Manage Room' ? 'selected' : '' }}Manage Room
+                                            <option value="Manage Car">
+                                                {{ $permission->group_name == 'Manage Car' ? 'selected' : '' }}Manage Car
                                             </option>
                                             <option value="Booking">
                                                 {{ $permission->group_name == 'Booking' ? 'selected' : '' }}Booking</option>
-                                            <option value="RoomList">
-                                                {{ $permission->group_name == 'RoomList' ? 'selected' : '' }}RoomList</option>
+                                            <option value="CarList">
+                                                {{ $permission->group_name == 'CarList' ? 'selected' : '' }}CarList</option>
                                             <option value="Setting">
                                                 {{ $permission->group_name == 'Setting' ? 'selected' : '' }}Setting</option>
-                                            <option value="Tesimonial">
-                                                {{ $permission->group_name == 'Tesimonial' ? 'selected' : '' }}Tesimonial</option>
+                                            <option value="Testimonial">
+                                                {{ $permission->group_name == 'Testimonial' ? 'selected' : '' }}Testimonial</option>
                                             <option value="Blog">
                                                 {{ $permission->group_name == 'Blog' ? 'selected' : '' }}Blog</option>
                                             <option value="Manage Comment">
