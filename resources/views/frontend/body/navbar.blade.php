@@ -14,7 +14,7 @@
     <div class="main-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light ">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <img src="{{$setting->logo}}" class="logo-one" alt="Logo">
                     <img src="{{$setting->logo}}" class="logo-two"
                         alt="Logo">
@@ -31,59 +31,7 @@
                         @php
                             $car = App\Models\Car::latest()->get();
                         @endphp
-                        {{-- <li class="nav-item">
-                            <a class="nav-link">
-                                About
-                                <i class='bx bx-chevron-down'></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="{{ route('about.us') }}" class="nav-link active">
-                                        About Us
-                                    </a>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a href="{{ route('fcar.all') }}" class="nav-link">
-                                        
-                                        Fleet
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                        </li> --}}
-
-
-                        {{-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Services
-                                <i class='bx bx-chevron-down'></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="services-1.html" class="nav-link">
-                                        Services Style One
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="services-2.html" class="nav-link">
-                                        Services Style Two
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="service-details.html" class="nav-link">
-                                        Service Details
-                                    </a>
-                                </li>
-                            </ul>
-                        </li> --}}
-
-                        {{-- <li class="nav-item">
-                            <i class='bx bxs-plane-alt'></i>
-                            <a href="#" class="">
-                                Airport transfer
-                            </a>
-                        </li> --}}
+                        
                         <li class="nav-item">
                             <a href="{{ route('about.us') }}" class="nav-link">
                                 About Us
@@ -100,11 +48,7 @@
                                 Review
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Booking
-                            </a>
-                        </li> --}}
+                        
                         <li class="nav-item">
                             <a href="{{route('contact.us')}}" class="nav-link">
                                 Contact
@@ -117,9 +61,7 @@
                         </li>
                     </ul>
 
-                    {{-- <div class="nav-btn">
-                        <a href="#" class="default-btn btn-bg-one border-radius-5">Book Now</a>
-                    </div> --}}
+                    
                 </div>
             </nav>
         </div>
