@@ -53,14 +53,7 @@
                         <textarea class="form-control" id="input47" rows="3" placeholder="Description" name="short_desc" >{{$book->short_desc}}</textarea>
                     </div>
                 </div>
-                {{-- <div class="row mb-3">
-                    <div class="col-sm-3">
-                        <h6 class="mb-0">Link Url</h6>
-                    </div>
-                    <div class="form-group col-sm-9 text-secondary">
-                        <input type="text" name='link_url' class="form-control" value="{{$book->link_url}}" />
-                    </div>
-                </div> --}}
+                
                 
                 
                 <div class="row mb-3">

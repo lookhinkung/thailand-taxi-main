@@ -67,12 +67,12 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     /// Team Route
     Route::controller(TeamController::class)->group(function () {
 
-        Route::get('/all/team', 'AllTeam')->name('all.team');
-        Route::get('/add/team', 'AddTeam')->name('add.team');
+        Route::get('/all/team', 'AllTeam')->name('all.team')->middleware('permission:team.menu');
+        Route::get('/add/team', 'AddTeam')->name('add.team')->middleware('permission:team.add');
         Route::post('/team/store', 'StoreTeam')->name('team.store');
-        Route::get('/edit/team/{id}', 'EditTeam')->name('edit.team');
+        Route::get('/edit/team/{id}', 'EditTeam')->name('edit.team')->middleware('permission:team.edit');
         Route::post('/team/update', 'UpdateTeam')->name('team.update');
-        Route::get('/delete/team/{id}', 'DeleteTeam')->name('delete.team');
+        Route::get('/delete/team/{id}', 'DeleteTeam')->name('delete.team')->middleware('permission:team.delete');
 
     });
 

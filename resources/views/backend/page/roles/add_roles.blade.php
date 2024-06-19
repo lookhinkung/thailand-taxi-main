@@ -35,7 +35,7 @@
 
     <div class="col-md-6">
         <label for="input1" class="form-label">Roles Name </label>
-        <input type="text" name="name" class="form-control"   >
+        <input type="text" name="name" class="form-control"  required >
 
     </div>
 

@@ -180,14 +180,18 @@ class AdminController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        $user->address = $request->address;
+        $user->nationality = $request->nationality;
         $user->role = 'admin';
         $user->status = 'active';
         $user->save();
 
         $user->roles()->detach();
+        // Convert role IDs from strings to integers
         if ($request->roles) {
-            $user->assignRole($request->roles);
+            $roles = collect($request->roles)->map(fn($val) => (int) $val);
+
+            // Assign new roles to the user
+            $user->assignRole($roles);
         }
 
         $notification = array(
