@@ -32,14 +32,7 @@ class CarController extends Controller
 
     }//End method
 
-    // public function AddcarType($id)
-    // {//
-    //     $editData = Car::findOrFail($id);
-    //     $multiimgs = MultiImage::where("car_id", $id)->get();
-    //     $allcarNo = CarNumber::where("car_id", $id)->get();
-    //     return view("backend.allcar.cartype.add_cartype", compact('editData', 'multiimgs', 'allcarNo'));
-    // }//End method
-
+   
 
 
 

@@ -47,54 +47,10 @@
                             <p>
                                 {!! $blog->long_desc !!}
                             </p>
-                            <p>
-                                Ecespiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                                totam rem aperiam,
-                                eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                                explicabo. Nemo enim
-                                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                                magni dolores eos qui
-                                ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quci velit
-                                modi tempora incidunt
-                                ut labore et dolore magnam aliquam quaerat .
-                            </p>
+                            
 
-                            <blockquote class="blockquote">
-                                <p>
-                                    Awesome dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitationaco laboris nisi ut aliquip commodo
-                                    consequat.
-                                </p>
-                            </blockquote>
+                            
                         </div>
-
-                        <div class="another-content">
-                            <div class="content-img">
-                                <img src="assets/img/blog/blog-details-img2.jpg" alt="Images">
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros sed tellus fringilla
-                                molestie vitae quis mauris.
-                                Nunc fringilla nisi dui. Maecenas ornare et neque vel convallis. Pellentesque eu finibus
-                                augue. Proin quis gravida mauris.
-                                Donec ullamcorper varius egestas. Suspendisse ante massa, posuere a ipsum eu, lacinia
-                                tincidunt neque. Pellentesque habitant
-                                morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur laoreet in
-                                odio in placerat.
-                            </p>
-                            <p>
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                fugiat nulla pariatur.
-                                Excabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                                consequuntur magni
-                                dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                                ipsum quia dolor sit amet,
-                                consectetur, adipisci velit
-                            </p>
-                        </div>
-
-
 
                         @php
                             $comment = App\Models\Comment::where('post_id', $blog->id)
@@ -107,7 +63,6 @@
                             <ul>
                                 @foreach ($comment as $com)
                                     
-                                
 
                                 <li>
                                     <img src="{{(!empty($com->user->photo)) ? url('upload/admin_images/',
@@ -217,12 +172,9 @@
                                             <ul>
                                                 <li>
                                                     <i class='bx bx-user'></i>
-                                                    69K
+                                                    {{ \Illuminate\Support\Str::limit($post->short_desc, 39) }}
                                                 </li>
-                                                <li>
-                                                    <i class='bx bx-message-square-detail'></i>
-                                                    52K
-                                                </li>
+                                                
                                             </ul>
                                         </div>
                                     </article>

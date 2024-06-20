@@ -47,7 +47,7 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td> <img
                                             src="{{ !empty($item->photo) ? url('upload/admin_images/', $item->photo) : url('upload/no_image.jpg') }}"
-                                            alt="Admin" class="rounded-circle p-1 bg-primary" style="width:70px; height:40px;">
+                                            alt="Admin" class="rounded-circle p-1 bg-primary" style="width:70px; height:70px;">
                                         <div class="mt-3">
                                     </td>
                                     <td>{{ $item->name }}</td>

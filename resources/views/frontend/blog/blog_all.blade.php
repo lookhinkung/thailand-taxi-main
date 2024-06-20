@@ -41,9 +41,10 @@
                     <div class="blog-content">
                 <span>{{ $item->created_at->format('M d Y')  }}</span>
                         <h3>
-                            <a href="{{ url('blog/details/'.$item->post_slug) }}">{{ $item->post_titile }}</a>
+                            <a href="{{ url('blog/details/'.$item->post_slug) }}">{{ $item->post_title }}</a>
                         </h3>
-                        <p>{{ $item->short_descp }}</p>
+                        <p>{{ \Illuminate\Support\Str::limit($item->short_desc, 270) }}</p>
+
                         <a href="{{ url('blog/details/'.$item->post_slug) }}" class="read-btn">
                             Read More
                         </a>
