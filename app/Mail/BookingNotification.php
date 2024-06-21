@@ -30,7 +30,7 @@ class BookingNotification extends Mailable
      */
     public function build()
     {
-        return $this->subject('New Booking Notification')
+        return $this->subject('You Have New Booking')
                     ->view('mail.booking_notification')
                     ->with('emailData', $this->emailData);
     }

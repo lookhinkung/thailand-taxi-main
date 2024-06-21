@@ -38,7 +38,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Nationality <span class="required">*</span></label>
-                                        <input type="text" name="nationality" value="{{ \Auth::user()->nationality }}" class="form-control">
+                                        <input type="text" name="nationality" value="{{ \Auth::user()->nationality }}" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -102,21 +102,6 @@
                                 </div>
                                 
 
-                                {{-- <div class="col-lg-6 col-md-6">
-        <div class="form-group">
-            <label>Fleet<span class="required">*</span></label>
-            <select class="form-control" name="person" id="nmbr_person" value="{{ @$car->type->name }}">
-                <option value="" disabled selected>Select</option>
-                <option value="">Camry Sedan</option>
-                <option value="">Innova PPV (family car)</option>
-                <option value="">Fortuner SUV</option>
-                <option value="">KIA Grand Canival MPV</option>
-                <option value="">Commuter VIP VAN</option>
-                <option value="">All New Commuter VVIP VAN</option>
-            </select>
-        </div>
-    </div> --}}
-
                                 <div class="col-lg-12 col-md-6">
                                     <div class="form-group">
                                         <label>Message to us<span class="required">*</span></label>
@@ -125,8 +110,7 @@
                                 </div>
 
 
-                                {{-- <p>Session Value : {{ json_encode(session('book_date')) }}</p> --}}
-
+                            
 
                             </div>
                         </div>

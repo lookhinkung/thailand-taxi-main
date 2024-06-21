@@ -184,7 +184,7 @@
 
                     </div>
 
-                    <div class="car-details-review">
+                    {{-- <div class="car-details-review">
                         <h2>Clients Review and Retting's</h2>
                         <div class="review-ratting">
                             <h3>Your retting: </h3>
@@ -210,7 +210,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

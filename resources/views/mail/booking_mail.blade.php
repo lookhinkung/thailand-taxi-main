@@ -380,12 +380,13 @@
 </div>
 <div class="bee-col bee-col-2 bee-col-w8">
 <div class="bee-block bee-block-1 bee-paragraph">
-<p><strong>Hell Sir </strong><br/><strong>Your Request is confirm on this data. </strong></p>
+<p><strong>Hello Sir </strong><br/><strong>Your Request is confirm on this data. </strong></p>
 
-<h4>check in : {{$booking['check_in']}} </h4>
-<h4>check Out : {{$booking['check_out']}} </h4>
-<h4>User Name : {{$booking['name']}} </h4>
-<h4>Email : {{$booking['email']}} </h4>
+<h4>Check in : {{$booking['check_in']}} </h4>
+<h4>Check Out : {{$booking['check_out']}} </h4>
+<h4>Name : {{$booking['name']}} </h4>
+{{-- <h4>Email : {{$booking['email']}} </h4> --}}
+<h4>Email : bkkpremiumlimo@gmail.com </h4>
 <h4>Phone : {{$booking['phone']}} </h4>
 
 
@@ -518,7 +519,7 @@
 <p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">53 M6, Haad Chao Samran Road,
 	Tumbol Nong Plub, Muang
 	Phetchaburi, 76000. Thailand</span></p>
-<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">bkkpremiumlimo@gmail.com </span></p>
+<p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">bkkpremiumlimo@gmail.com</span></p>
 <p style="line-height: 18px; text-align: center;"><span style="line-height: 18px;">+66 0982623132</span></p>
 </div>
 </div>
@@ -543,8 +544,7 @@
 <div class="bee-block bee-block-1 bee-icons">
 <div class="bee-icon bee-icon-last">
 <div class="bee-content">
-<div class="bee-icon-image"><a href="https://www.designedwithbee.com/" target="_blank" title="Designed with BEE"><img alt="Designed with BEE" height="32px" src="images/bee.png" width="auto"/></a></div>
-<div class="bee-icon-label bee-icon-label-right"><a href="https://www.designedwithbee.com/" target="_blank" title="Designed with BEE">Designed with BEE</a></div>
+
 </div>
 </div>
 </div>
