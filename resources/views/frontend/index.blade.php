@@ -90,9 +90,15 @@
 @include('frontend.home.Fleet')
 <!-- Room Area End -->
 
+<!-- Blog Area -->
+@include('frontend.home.blog')
+<!-- Blog Area End -->
+
 <!-- Book Area Two-->
 @include('frontend.home.Fleet_two')
 <!-- Book Area Two End -->
+
+
 
 <!-- Services Area Three -->
 @include('frontend.home.services')
@@ -110,8 +116,6 @@
 {{-- @include('frontend.home.faq') --}}
 <!-- FAQ Area End -->
 
-<!-- Blog Area -->
-@include('frontend.home.blog')
-<!-- Blog Area End -->
+
 
 @endsection

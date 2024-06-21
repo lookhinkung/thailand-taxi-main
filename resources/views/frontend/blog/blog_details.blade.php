@@ -47,10 +47,52 @@
                             <p>
                                 {!! $blog->long_desc !!}
                             </p>
-                            
 
-                            
+
+                            <blockquote class="blockquote">
+                                <p>
+                                    Please Note: <br>
+                                    Taxi Tour Service Rates will depend on vehicle type, duration and distance <br>
+                                    (allinclusive rates but except an attraction entrance fees). <br>
+                                    <hr>
+                                    Luxury Seadan Car: Camry <br>
+                                    Family Car (MPV) service : Innova, Space Wagon. <br>
+                                    SUV Car service : Fortuner, Pajero. <br>
+                                    Minibus VIP Van : Commuter <br>
+                                    <hr>
+                                    Select vehicle type from our fleet of vehicles available and submit the details required
+                                    for booking the trip in the message box below.
+                                    We will back to you very soon.
+                                </p>
+                            </blockquote>
                         </div>
+                        {{-- 
+                        <div class="another-content">
+                            <div class="content-img">
+                                <img src="assets/img/blog/blog-details-img2.jpg" alt="Images">
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros sed tellus fringilla
+                                molestie vitae quis mauris.
+                                Nunc fringilla nisi dui. Maecenas ornare et neque vel convallis. Pellentesque eu finibus
+                                augue. Proin quis gravida mauris.
+                                Donec ullamcorper varius egestas. Suspendisse ante massa, posuere a ipsum eu, lacinia
+                                tincidunt neque. Pellentesque habitant
+                                morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur laoreet in
+                                odio in placerat.
+                            </p>
+                            <p>
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                fugiat nulla pariatur.
+                                Excabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur magni
+                                dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
+                                ipsum quia dolor sit amet,
+                                consectetur, adipisci velit
+                            </p>
+                        </div> --}}
+
+
 
                         @php
                             $comment = App\Models\Comment::where('post_id', $blog->id)
@@ -62,19 +104,16 @@
                             <h3 class="title">Comments</h3>
                             <ul>
                                 @foreach ($comment as $com)
-                                    
+                                    <li>
+                                        <img src="{{ !empty($com->user->photo) ? url('upload/admin_images/', $com->user->photo) : url('upload/no_image.jpg') }}"
+                                            alt="Image" style="width:50px; height:50px;">
+                                        <h3>{{ $com->user->name }}</h3>
+                                        <span>{{ $com->created_at->format('M d Y') }}</span>
+                                        <p>
+                                            {{ $com->message }}
+                                        </p>
 
-                                <li>
-                                    <img src="{{(!empty($com->user->photo)) ? url('upload/admin_images/',
-                                    $com->user->photo) : url ('upload/no_image.jpg')}}" alt="Image" style="width:50px; height:50px;">
-                                    <h3>{{$com->user->name}}</h3>
-                                    <span>{{$com->created_at->format('M d Y')}}</span>
-                                    <p>
-                                        {{$com->message}}
-                                    </p>
-
-                                </li>
-
+                                        </img>
                                 @endforeach
                             </ul>
                         </div>
@@ -172,9 +211,12 @@
                                             <ul>
                                                 <li>
                                                     <i class='bx bx-user'></i>
-                                                    {{ \Illuminate\Support\Str::limit($post->short_desc, 39) }}
+                                                    69K
                                                 </li>
-                                                
+                                                <li>
+                                                    <i class='bx bx-message-square-detail'></i>
+                                                    52K
+                                                </li>
                                             </ul>
                                         </div>
                                     </article>
