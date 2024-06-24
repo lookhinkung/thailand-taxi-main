@@ -357,6 +357,7 @@
           return false;
        }
     })
+    
  </script>
     
 @endsection

@@ -26,7 +26,7 @@
 <div class="banner-area" style="height: 480px;">
     <div class="container">
         <div class="banner-content">
-            <h1>Premium Taxi Cab Transger Services in Thailand</h1>
+            <h1>Thailand Taxi Transfer Services</h1>
        
         </div>
     </div>
@@ -101,16 +101,19 @@
 
 
 <!-- Services Area Three -->
-@include('frontend.home.services')
+{{-- @include('frontend.home.services') --}}
 <!-- Services Area Three End -->
+
+<!-- Testimonials Area Three -->
+@include('frontend.home.testimonials')
+<!-- Testimonials Area Three End -->
+
 
 <!-- Team Area Three -->
 @include('frontend.home.team')
 <!-- Team Area Three End -->
 
-<!-- Testimonials Area Three -->
-@include('frontend.home.testimonials')
-<!-- Testimonials Area Three End -->
+
 
 <!-- FAQ Area -->
 {{-- @include('frontend.home.faq') --}}

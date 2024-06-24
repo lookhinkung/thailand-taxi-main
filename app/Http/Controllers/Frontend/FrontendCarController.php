@@ -112,6 +112,8 @@ class FrontendCarController extends Controller
         $fromDate = Carbon::parse($request->check_out);
         $nights = $toDate->diffInDays($fromDate);
 
+        
+
         return response()->json(['available_car'=>$av_car,'total_nights'=>$nights]);
 
     }//End Method

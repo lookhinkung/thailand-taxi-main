@@ -1,6 +1,9 @@
 @extends('frontend.main_master')
 @section('main')
-    <!-- Inner Banner -->
+    @php
+        $setting = App\Models\SiteSetting::find(1);
+    @endphp
+
     <div class="inner-banner inner-bg3">
         <div class="container">
             <div class="inner-title">
@@ -30,12 +33,10 @@
                         <div class="blog-article-title">
                             <h2>{{ $blog->post_title }}</h2>
                             <ul>
-
                                 <li>
                                     <i class='bx bx-user'></i>
                                     {{ $blog['user']['name'] }}
                                 </li>
-
                                 <li>
                                     <i class='bx bx-calendar'></i>
                                     {{ $blog->created_at->format('M d Y') }}
@@ -48,51 +49,13 @@
                                 {!! $blog->long_desc !!}
                             </p>
 
-
                             <blockquote class="blockquote">
                                 <p>
-                                    Please Note: <br>
-                                    Taxi Tour Service Rates will depend on vehicle type, duration and distance <br>
-                                    (allinclusive rates but except an attraction entrance fees). <br>
-                                    <hr>
-                                    Luxury Seadan Car: Camry <br>
-                                    Family Car (MPV) service : Innova, Space Wagon. <br>
-                                    SUV Car service : Fortuner, Pajero. <br>
-                                    Minibus VIP Van : Commuter <br>
-                                    <hr>
-                                    Select vehicle type from our fleet of vehicles available and submit the details required
-                                    for booking the trip in the message box below.
-                                    We will back to you very soon.
+                                   {!! $blog->note !!}
+                                   
                                 </p>
                             </blockquote>
                         </div>
-                        {{-- 
-                        <div class="another-content">
-                            <div class="content-img">
-                                <img src="assets/img/blog/blog-details-img2.jpg" alt="Images">
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros sed tellus fringilla
-                                molestie vitae quis mauris.
-                                Nunc fringilla nisi dui. Maecenas ornare et neque vel convallis. Pellentesque eu finibus
-                                augue. Proin quis gravida mauris.
-                                Donec ullamcorper varius egestas. Suspendisse ante massa, posuere a ipsum eu, lacinia
-                                tincidunt neque. Pellentesque habitant
-                                morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur laoreet in
-                                odio in placerat.
-                            </p>
-                            <p>
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                fugiat nulla pariatur.
-                                Excabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                                consequuntur magni
-                                dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                                ipsum quia dolor sit amet,
-                                consectetur, adipisci velit
-                            </p>
-                        </div> --}}
-
-
 
                         @php
                             $comment = App\Models\Comment::where('post_id', $blog->id)
@@ -112,8 +75,7 @@
                                         <p>
                                             {{ $com->message }}
                                         </p>
-
-                                        </img>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -122,29 +84,12 @@
                             <div class="contact-form">
                                 <h2>Leave A Comment</h2>
 
-
-                                @php
-                                    if (Auth::check()) {
-                                        $id = Auth::user()->id;
-                                        $userData = App\Models\User::find($id);
-                                    } else {
-                                        $userData = null;
-                                    }
-                                @endphp
-
-
                                 @auth
-
-
                                     <form method="POST" action="{{ route('store.comment') }}">
                                         @csrf
                                         <div class="row">
-
                                             <input type="hidden" name="post_id" value="{{ $blog->id }}">
-                                            @if ($userData)
-                                                <input type="hidden" name="user_id" value="{{ $userData->id }}">
-                                            @endif
-
+                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
                                             <div class="col-lg-12 col-md-12">
                                                 <div class="form-group">
@@ -152,7 +97,6 @@
                                                         data-error="Write your message" placeholder="Your Message"></textarea>
                                                 </div>
                                             </div>
-
 
                                             <div class="col-lg-12 col-md-12">
                                                 <button type="submit" class="default-btn btn-bg-three">
@@ -223,8 +167,6 @@
                                 @endforeach
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

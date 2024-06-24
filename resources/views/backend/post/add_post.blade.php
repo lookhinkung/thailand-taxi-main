@@ -60,6 +60,11 @@
                         <textarea name="long_desc" class="form-control" id="myeditorinstance" ></textarea>
                     </div>
 
+                    <div class="col-md-12">
+                        <label for="input11" class="form-label">Note</label>
+                        <textarea name="note" class="form-control" id="myeditorinstance" ></textarea>
+                    </div>
+
                     <div class="col-md-6">
                         <label for="input1" class="form-label">Post Image</label>
                         <input class="form-control" name="post_image" type="file" id="image">

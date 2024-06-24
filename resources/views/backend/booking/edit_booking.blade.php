@@ -114,9 +114,11 @@
                                     <tr>
                                         <th>Car Type</th>
                                         <th>Check In / Out Date</th>
+                                        <th>Pick up from</th>
+                                        <th>Drop off</th>
                                         <th>Pick up Time</th>
-                                        <th>Total Passenger</th>
-                                        <th>Total Days</th>
+                                        <th>Pax</th>
+                                        <th>Days</th>
                                     </tr>
 
                                 </thead>
@@ -127,7 +129,8 @@
                                             <span class="badge bg-primary"> {{ $editData->check_in }} </span>
                                             <br> <span class="badge bg-warning text-dark"> {{ $editData->check_out }}
                                             </span>
-                                        </td>
+                                        </td><td>{{ $editData->pick_from }}</td>
+                                        <td>{{ $editData->drop_to }}</td>
                                         <td>{{ $editData->pick_time }}</td>
                                         <td>{{ $editData->persion }}</td>
                                         <td>{{ $editData->total_night }}</td>

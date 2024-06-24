@@ -45,7 +45,7 @@
                                 <th>Pick up Time</th>
                                 <th>Check In/Out</th>
                                 <th>Total Day</th>
-                                <th>Total Customer</th>
+                                <th>Pax</th>
                                 <th>Status</th>
                                 <th>Action</th>
 

@@ -98,6 +98,7 @@ class BlogController extends Controller
             'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
             'short_desc' => $request->short_desc,
             'long_desc' => $request->long_desc,
+            'note' => $request->note,
             'post_image' => $save_url,
             'created_at' => Carbon::now(),
         ]);
@@ -138,6 +139,7 @@ class BlogController extends Controller
                 'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
                 'short_desc' => $request->short_desc,
                 'long_desc' => $request->long_desc,
+                'note' => $request->note,
                 'post_image' => $save_url,
                 'created_at' => Carbon::now(),
 
@@ -157,6 +159,7 @@ class BlogController extends Controller
                 'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
                 'short_desc' => $request->short_desc,
                 'long_desc' => $request->long_desc,
+                'note' => $request->note,
                 'created_at' => Carbon::now(),
 
             ]);
