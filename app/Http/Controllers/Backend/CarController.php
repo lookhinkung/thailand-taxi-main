@@ -54,7 +54,8 @@ class CarController extends Controller
 
             $image = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(550, 850)->save('upload/carimg/' . $name_gen);
+            // Image::make($image)->resize(550, 850)->save('upload/carimg/' . $name_gen);
+            Image::make($image)->resize(240, 160)->save('upload/carimg/' . $name_gen);
             $car['image'] = $name_gen;
 
         }

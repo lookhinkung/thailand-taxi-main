@@ -82,7 +82,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-4">
                                         <div class="form-group">
-                                            <label>From <span class="required">*</span></label>
+                                            <label>Pickup Location<span class="required">*</span></label>
                                             <input type="text" name="pick_from" class="form-control">
                                             @if ($errors->has('pick_from'))
                                                 <div class="text-danger">{{ $errors->first('pick_from') }}</div>
@@ -92,7 +92,7 @@
                                 
                                     <div class="col-lg-6 col-md-4">
                                         <div class="form-group">
-                                            <label>Drop off <span class="required">*</span></label>
+                                            <label>Drop off Location<span class="required">*</span></label>
                                             <input type="text" name="drop_to" class="form-control">
                                             @if ($errors->has('drop_to'))
                                                 <div class="text-danger">{{ $errors->first('drop_to') }}</div>
